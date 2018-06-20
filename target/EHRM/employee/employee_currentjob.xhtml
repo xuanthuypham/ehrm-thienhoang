@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<body> 
+    		<!-- xoa phan phan khung duoi di, thay vao noi dung tuong ung. -->
+    		<!-- =================================================================================================-->
+    			
+    		<div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_content">
+                  	<!-- search-->
+			        <div class="container">
+			 <div class="row">
+
+                <!-- show table-->
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Current job information</h2>
+                    
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                  	<!-- search-->
+			        <div class="container">
+			            	<div class="row">
+				             <form>
+                          	 <div class='col-sm-6 form-horizontal'>
+                           	 <div class="col-sm-4 cfg-label">
+                          	 	Current Department:
+                          	 </div>
+                          	 <div class="col-sm-8">
+               					 <div class="form-group">
+									<h:outputText  styleClass="form-control"></h:outputText>	
+									</div>			              
+				                </div>
+				            		<div class="col-sm-4 cfg-label">
+				                    	Current salary gross:
+				                    </div>
+				                        <div class="form-group" >
+				                        	<div class="col-sm-8">
+				                            <h:outputText styleClass="form-control" />
+				                            </div>
+				                        </div>
+				            		<div class="col-sm-4 cfg-label">
+				                    	Seniority:
+				                    </div>
+				                        <div class="form-group" >
+				                        	<div class="col-sm-8">
+				                            <h:outputText styleClass="form-control" />
+				                            </div>
+				                        </div>
+				            		<div class="col-sm-4 cfg-label">
+				                    	Current responsibility:
+				                    </div>
+				                        <div class="form-group" >
+				                        	<div class="col-sm-8">
+				                            <h:outputText styleClass="form-control" />
+				                            </div>
+				                        </div>				                        				                        				                                         	 
+                          	 </div>
+                          	 <div class='col-sm-6 form-horizontal'>                          	 
+
+			                 <div class="col-sm-4 cfg-label">
+			                 	Current title:
+			                 </div>
+					              <div class="form-group">
+				                    <div class="col-sm-8">
+				                         <h:outputText styleClass="form-control" />
+				                    </div>
+				                </div>
+
+				                	<div class="col-sm-4 cfg-label">
+				                		<label>Current salary net:</label>
+				                	</div>
+				                	<div class="form-group">
+				                	<div class="col-sm-8">
+				                			<h:outputText styleClass="form-control"></h:outputText>
+				                		</div>
+				                	</div>
+
+				            		<div class="col-sm-4 cfg-label">
+				                    	Joining date:
+				                    </div>
+				                        <div class="form-group" >
+				                        	<div class="col-sm-8">
+				                            <h:outputText styleClass="form-control" />
+				                            </div>
+				                        </div>
+
+				            		<div class="col-sm-4 cfg-label">
+				                    	Pobation salary net:
+				                    </div>
+				                        <div class="form-group" >
+				                        	<div class="col-sm-8">
+				                            <h:outputText styleClass="form-control" />
+				                            </div>
+				                </div>	
+				                </div>			                			                
+						        <div class="col-sm-12 " >
+									<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-edit-currentjob">Edit</button>
+
+								</div>
+								</form>
+				            </div>
+			            
+			        </div>
+			        </div>
+			        </div>
+			    </div>
+				</div>
+                </div>
+            </div>
+            </div>
+            </div>
+
+			<!--  Delete modal -->
+
+			<!-- Edit modal -->
+            <div class="modal fade bs-example-modal-lg" id="modal-edit-currentjob" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-delete">
+                      <div class="modal-content" style="width: 800px;">
+
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel">Employee bank account information :</h4>
+                        </div>
+                        <form>
+                        <div class="modal-body">
+
+                          	 <div class='col-sm-6 form-horizontal'>
+                					 <div class="form-group">
+                           	 <div class="col-sm-6 cfg-label">
+                          	 	Current Department:
+                          	 </div>
+                          	 <div class="col-sm-6">
+									<h:outputText  styleClass="form-control"></h:outputText>	
+									</div>			              
+				                </div>
+               					 <div class="form-group">
+				            		<div class="col-sm-6 cfg-label">
+				                    	Current salary gross:
+				                    </div>
+				                        	<div class="col-sm-6">
+				                            <h:outputText styleClass="form-control" />
+				                            </div>
+				                        </div>
+               					 <div class="form-group">
+				            		<div class="col-sm-6 cfg-label">
+				                    	Seniority:
+				                    </div>
+				                        	<div class="col-sm-6">
+				                            <h:outputText styleClass="form-control" />
+				                            </div>
+				                        </div>
+               					 <div class="form-group">
+				            		<div class="col-sm-6 cfg-label">
+				                    	Current responsibility:
+				                    </div>
+				                        	<div class="col-sm-6">
+				                            <h:outputText styleClass="form-control" />
+				                            </div>
+				                        </div>				                        				                        				                                         	 
+                          	 </div>
+                          	 <div class='col-sm-6 form-horizontal'>                          	 
+               					 <div class="form-group">
+
+			                 <div class="col-sm-6 cfg-label">
+			                 	Current title:
+			                 </div>
+				                    <div class="col-sm-6">
+				                         <h:outputText styleClass="form-control" />
+				                    </div>
+				                </div>
+               					 <div class="form-group">
+
+				                	<div class="col-sm-6 cfg-label">
+				                		<label>Current salary net:</label>
+				                	</div>
+				                	<div class="col-sm-6">
+				                			<h:outputText styleClass="form-control"></h:outputText>
+				                		</div>
+				                	</div>
+               					 <div class="form-group">
+
+				            		<div class="col-sm-6 cfg-label">
+				                    	Joining date:
+				                    </div>
+				                        	<div class="col-sm-6">
+				                            <h:outputText styleClass="form-control" />
+				                            </div>
+				                        </div>
+               					 <div class="form-group">
+
+				            		<div class="col-sm-6 cfg-label">
+				                    	Pobation salary net:
+				                    </div>
+				                        	<div class="col-sm-6">
+				                            <h:outputText styleClass="form-control" />
+				                            </div>
+				                </div>	
+				                </div>
+				            </div>	
+                        <div class="modal-footer">
+                           <button type="button" class="btn btn-primary">Save </button>
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        </div>
+                    	</form>
+                      </div>
+                    </div>
+            </div>
+            <!-- =================================================================================================-->	
+</body> 
+</html>

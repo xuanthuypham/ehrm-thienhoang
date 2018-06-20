@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      
+      >
+    <h:body>
+    	
+    	<ui:composition template="/template/common/commonLayout.xhtml">
+    		<!-- Thay ten trang tuong ung -->
+    		<ui:define name="title">
+    			Demo Ck Editor
+    		</ui:define>
+    	
+    		<ui:define name="content">
+    		<!-- xoa phan phan khung duoi di, thay vao noi dung tuong ung. -->
+    		<!-- =================================================================================================-->
+    		<div class="">
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2><i class="fa fa-bars"></i> Tabs <small>Float left</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+
+                     <div class="boot-tab-slider">
+                       
+                        <a href="#" class="boot-tab-slider__scroll-left"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span></a>
+                        <a href="#" class="boot-tab-slider__scroll-right"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></a>
+                        <div class="boot-tab-slider__wrapper">
+                         
+                          <ul class="nav nav-tabs" role="tablist" id="exampleNav">
+                            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+                            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+                            <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+                            <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+                            <li role="presentation"><a href="#morestuff" aria-controls="settings" role="tab" data-toggle="tab">More Stuff 1</a></li>
+                            <li role="presentation"><a href="#morestuff2" aria-controls="settings" role="tab" data-toggle="tab">More Stuff 2</a></li>
+                            <li role="presentation"><a href="#morestuff3" aria-controls="settings" role="tab" data-toggle="tab">More Stuff 3</a></li>
+                            <li role="presentation"><a href="#morestuff4" aria-controls="settings" role="tab" data-toggle="tab">More Stuff 4</a></li>
+                            <li role="presentation"><a href="#morestuff5" aria-controls="settings" role="tab" data-toggle="tab">More Stuff 5</a></li>
+                            <li role="presentation"><a href="#morestuff6" aria-controls="settings" role="tab" data-toggle="tab">More Stuff 6</a></li>
+                            <li role="presentation"><a href="#morestuff7" aria-controls="settings" role="tab" data-toggle="tab">More Stuff 7</a></li>
+                            <li role="presentation"><a href="#morestuff8" aria-controls="settings" role="tab" data-toggle="tab">More Stuff 8</a></li>
+                            <li role="presentation"><a href="#morestuff9" aria-controls="settings" role="tab" data-toggle="tab">More Stuff 9</a></li>
+                            <li role="presentation"><a href="#morestuff10" aria-controls="settings" role="tab" data-toggle="tab">More Stuff 10</a></li>
+                          </ul>
+                        </div>
+                       
+                        <div class="tab-content">
+                          
+                          <div role="tabpanel" class="tab-pane active" id="home">
+                            <p>xxFood truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo
+                            booth letterpress, commodo enim craft beer mlkshk </p>
+                          </div>
+                          <div role="tabpanel" class="tab-pane fade" id="profile">Profile Tab!</div>
+                          <div role="tabpanel" class="tab-pane fade" id="messages">Messages Tab!</div>
+                          <div role="tabpanel" class="tab-pane fade" id="settings">Settings Tab!</div>
+                          <div role="tabpanel" class="tab-pane fade" id="morestuff">More Stuff Tab 1!</div>
+                          <div role="tabpanel" class="tab-pane fade" id="morestuff2">More Stuff Tab 2!</div>
+                          <div role="tabpanel" class="tab-pane fade" id="morestuff3">
+                              <p>xxFood truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo
+                            booth letterpress, commodo enim craft beer mlkshk </p>
+                          </div>
+                          <div role="tabpanel" class="tab-pane fade" id="morestuff4">More Stuff Tab 4!</div>
+                          <div role="tabpanel" class="tab-pane fade" id="morestuff5">More Stuff Tab 5!</div>
+                          <div role="tabpanel" class="tab-pane fade" id="morestuff6">More Stuff Tab 6!</div>
+                          <div role="tabpanel" class="tab-pane fade" id="morestuff7">More Stuff Tab 7!</div>
+                          <div role="tabpanel" class="tab-pane fade" id="morestuff8">More Stuff Tab 8!</div>
+                          <div role="tabpanel" class="tab-pane fade" id="morestuff9">More Stuff Tab 9!</div>
+                          <div role="tabpanel" class="tab-pane fade" id="morestuff10">More Stuff Tab 10!</div>
+                        </div>
+                      </div>
+
+
+                  </div>
+                </div>
+              </div>
+          </div>
+
+    <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+    			
+    			<div class="x_content">
+    				<input type="text" id="txtSearch" onkeyup="searchTable()"  title="Type in a name" /> 
+    				
+    				<br/>
+    				<table id= "table" class="table">
+					  <tr >
+					    <th style="width:60%;">Name</th>
+					    <th style="width:40%;">Country</th>
+					  </tr>
+					  <tr>
+					    <td>Alfreds Futterkiste</td>
+					    <td>Germany</td>
+					  </tr>
+					  <tr>
+					    <td>Berglunds snabbkop</td>
+					    <td>Sweden</td>
+					  </tr>
+					  <tr>
+					    <td>Island Trading</td>
+					    <td>UK</td>
+					  </tr>
+					  <tr>
+					    <td>Koniglich Essen</td>
+					    <td>Germany</td>
+					  </tr>
+					  <tr>
+					    <td>Laughing Bacchus Winecellars</td>
+					    <td>Canada</td>
+					  </tr>
+					  <tr>
+					    <td>Magazzini Alimentari Riuniti</td>
+					    <td>Italy</td>
+					  </tr>
+					  <tr>
+					    <td>North/South</td>
+					    <td>UK</td>
+					  </tr>
+					  <tr>
+					    <td>Paris specialites</td>
+					    <td>France</td>
+					  </tr>
+					</table>
+
+					
+    			</div>
+			</div>
+		</div>
+	</div>
+              
+
+            <!-- =================================================================================================-->	
+    		</ui:define>
+		</ui:composition>
+    </h:body>
+
+</html>

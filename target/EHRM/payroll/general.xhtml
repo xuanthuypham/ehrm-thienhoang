@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//Ddiv XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/Ddiv/xhtml1-transitional.ddiv"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<body> 
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Employee information</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  	<!-- search-->
+			        <div class="container">
+			           
+			            	<div class="row">
+			            		
+			            		<!--column left -->
+			            		<div class="col-sm-6">
+			            			<div>
+			            					
+			            						<div class="form-group">
+			            							<div class="col-sm-5">Title:</div>
+					            					<div class="col-sm-7"><h:outputText styleClass="form-control" value="#{payroll_bean.emp.masterDatasByTitleId.masterDataDescription}" /></div>
+												</div>
+				            				
+			            					
+			            						<div class="form-group">
+				            						<div class="col-sm-5">First name:</div>
+				            						<div class="col-sm-7"><h:outputText styleClass="form-control" value="#{payroll_bean.emp.firstName}" /></div>
+				            					</div>
+			            					
+			            					
+			            						<div class="form-group">
+				            						<div class="col-sm-5">Middle name:</div>
+				            						<div class="col-sm-7"><h:outputText styleClass="form-control" value="#{payroll_bean.emp.middleName}" /></div>
+				            					</div>
+			            					
+			            						<div class="form-group">
+				            						<div class="col-sm-5">Last name:</div>
+				            						<div class="col-sm-7"><h:outputText styleClass="form-control" value="#{payroll_bean.emp.lastName}" /></div>
+			            						</div>
+			            						<div class="form-group">
+				            						<div class="col-sm-5">8-ID:</div>
+				            						<div class="col-sm-7"><h:outputText styleClass="form-control" value="#{payroll_bean.emp.identifyCompany}" /></div>
+			            						</div>
+			            						<div class="form-group">
+				            						<div class="col-sm-5">Other name:</div>
+				            						<div class="col-sm-7"><h:outputText styleClass="form-control" value="#{payroll_bean.emp.otherName}" /></div>
+			            						</div>
+			            						<div class="form-group">
+				            						<div class="col-sm-5">Date of birth:</div>
+				            						<div class="col-sm-7"><h:outputText styleClass="form-control" value="#{payroll_bean.emp.dateOfBirth}"/></div>
+			            						</div>
+			            						<div class="form-group">
+				            						<div class="col-sm-5">Address:</div>
+				            						<div class="col-sm-7"><h:outputText style=" word-wrap: break-word;" styleClass="form-control" value="#{payroll_bean.emp.permanentAddressVietnamese}" /></div>
+			            						</div>
+			            						<div class="form-group">
+				            						<div class="col-sm-5">Position:</div>
+				            						<div class="col-sm-7"><h:outputText styleClass="form-control" value="" /></div>
+			            						</div>
+			            						<div class="form-group">
+				            						<div class="col-sm-5">Bank account:</div>
+				            						<div class="col-sm-7"><h:outputText styleClass="form-control" style=" word-wrap: break-word;" value="#{payroll_bean.getBankAccount()}" /></div>
+			            						</div>
+			            						<div class="form-group">
+				            						<div class="col-sm-5">Contract:</div>
+				            						<div class="col-sm-7"><h:outputText styleClass="form-control" value="#{payroll_bean.emp.employeeContractses.size()}" /></div>
+			            						</div>
+			            						<div class="form-group">
+				            						<div class="col-sm-5">Number of social book:</div>
+				            						<div class="col-sm-7"><h:outputText styleClass="form-control" value="#{payroll_bean.emp.socialBookNo}" /></div>
+			            						</div>
+			            						<div class="form-group">
+				            						<div class="col-sm-5">Nationality:</div>
+				            						<div class="col-sm-7"><h:outputText styleClass="form-control"  value = "#{payroll_bean.emp.masterDatasByNationalityId.masterDataDescription}"/>  </div>
+			            						</div>
+			            						<div class="form-group">
+				            						<div class="col-sm-5">Is foreigner:</div>
+				            						<div class="col-sm-7"><h:selectBooleanCheckbox value="#{payroll_bean.emp.isForeigner}"/></div>
+			            						</div>
+			            						<div class="form-group">
+				            						<div class="col-sm-5">PIT code:</div>
+				            						<div class="col-sm-7"><h:outputText styleClass="form-control" value="#{payroll_bean.emp.pitCode}" /></div>
+			            						</div>
+			            						<div class="form-group">
+				            						<div class="col-sm-5">Start date:</div>
+				            						<div class="col-sm-7"><h:outputText styleClass="form-control"  value="#{payroll_bean.emp.workingStartDate}" /></div>
+			            						</div>
+			            					
+			            			</div>
+			            		</div>
+			            		<!--column left -->
+			            		<!--column right -->
+			            		<div class="col-sm-6">
+			            			<div>
+			            						<div class="form-group">
+				            						<div class="col-sm-5"></div>
+				            						<div class="col-sm-7"></div>
+			            						</div>
+			            						<br/>
+			            						<div class="form-group">
+				            						<div class="col-sm-5">Photo:</div>
+				            						<div class="col-sm-7"></div>
+			            					
+			            						</div>
+			            						<div class="form-group">
+				            						<div class="col-sm-5"></div>
+				            						<div class="col-sm-7"></div>
+			            						</div>
+			            					<br/>
+			            						<div class="form-group">
+				            						<div class="col-sm-5"></div>
+				            						<div class="col-sm-7"></div>
+			            						</div>
+			            					<br/>
+			            						<div class="form-group">
+				            						<div class="col-sm-5"></div>
+				            						<div class="col-sm-7"></div>
+			            						</div>
+			            					<br/>
+			            						<div class="form-group">
+				            						<div class="col-sm-5">Gender:</div>
+				            						<div class="col-sm-7"><h:outputText  styleClass="form-control" value="#{payroll_bean.emp.masterDatasByGenderId.masterDataDescription}" /></div>
+			            						</div>
+			            						<div class="clearfix"></div>
+			            						<div class="form-group">
+				            						<div class="col-sm-5">Birth location:</div>
+				            						<div class="col-sm-7"><h:outputText styleClass="form-control" style="word-wrap: break-word;" value="#{payroll_bean.getBirthLocation()}" escape="false" /></div>
+			            						</div>
+			            						<div class="clearfix"></div>
+			            						<div class="form-group">
+				            						<div class="col-sm-5">Phone:</div>
+				            						<div class="col-sm-7"><h:outputText  styleClass="form-control" value="#{payroll_bean.getPhone()}"  /></div>
+			            						</div>
+			            						<div class="clearfix"></div>
+			            						<div class="form-group">
+				            						<div class="col-sm-5">Email:</div>
+				            						<div class="col-sm-7"><h:outputText  styleClass="form-control" value="#{payroll_bean.getEmail()}" /></div>
+			            						</div>
+			            						<div class="clearfix"></div>
+			            						<div class="form-group">
+				            						<div class="col-sm-5">Currency unit:</div>
+				            						<div class="col-sm-7" ><h:outputText styleClass="form-control" style="word-wrap: break-word;"  value="#{payroll_bean.getCurrentUnit()}" escape="false" /></div>
+			            						</div>
+			            						<div class="clearfix"></div>
+			            						<div class="form-group">
+				            						<div class="col-sm-5">Number of dependant:</div>
+				            						<div class="col-sm-7"><h:outputText  styleClass="form-control" value="#{payroll_bean.emp.employeeRelativeses.size()}" /></div>
+			            						</div>
+			            						<div class="clearfix"></div>
+			            						<div class="form-group">
+				            						<div class="col-sm-5">Active:</div>
+				            						<div class="col-sm-7"><h:selectBooleanCheckbox value="#{payroll_bean.emp.active}"/></div>
+			            						</div>
+			            						<div class="clearfix"></div>
+			            						<div class="form-group">
+				            						<div class="col-sm-5">Marital status:</div>
+				            						<div class="col-sm-7"><h:outputText styleClass="form-control" value = "#{payroll_bean.emp.masterDatasByMaritalStatusId.masterDataDescription}"/> </div>
+			            						</div>
+			            						
+			            						<br/>
+			            						<br/>
+			            						<div class="form-group">
+				            						<div class="col-sm-5">End of probation</div>
+				            						<div class="col-sm-7"><h:outputText  styleClass="form-control" value="#{payroll_bean.emp.probationEndDate}" /></div>
+			            						</div>
+			            						<div class="form-group">
+				            						<div class="col-sm-5">Seniority:</div>
+				            						<div class="col-sm-7"><h:outputText  styleClass="form-control" value="#{payroll_bean.getSeniority()}" /></div>
+			            						</div>
+			            			</div>			
+			            		</div>
+				               <!--column rigrt -->
+        						 					        							               				                
+				            </div>
+		             </div>
+			           
+			    </div>
+			</div>
+        </div>
+    </div>
+
+			        
+</body> 
+</html>

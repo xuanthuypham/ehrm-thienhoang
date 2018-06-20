@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      
+      >
+    <h:body>
+    	
+    	<ui:composition template="/template/common/commonLayout.xhtml">
+    		<!-- Thay ten trang tuong ung -->
+    		<ui:define name="title">
+    			Project Default
+    		</ui:define>
+    	
+    		<ui:define name="content">
+    		
+    		<!-- xoa phan phan khung duoi di, thay vao noi dung tuong ung. -->
+    		<!-- =================================================================================================-->
+    			
+    		<div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+              	<h2><strong>Project Default</strong></h2>
+              	<hr/>
+             
+                <!-- show table-->
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>List projects</h2>
+                    
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                  	<!-- search-->
+			        <div class="container">
+			            
+			            	<div class="row">
+				               
+				                <div class="clearfix"></div>
+				                <div class="col-sm-12">
+				                	<h:dataTable id= "datatable" styleClass="table table-striped table-bordered dataTable no-footer" var="pr" value="#{projects_bean.lstActive}" >
+									  		<h:column>
+												<f:facet name="header">
+													<!-- <h:outputText value="Mã"/> -->
+													<span style="text-align: center;" class="glyphicon glyphicon-file" aria-hidden="true"></span>
+												</f:facet>
+												<h:outputText value="#{projects_bean.i}"/>
+											</h:column>
+											<h:column>
+												<f:facet name="header">
+													<h:outputText value="Project code"/>
+												</f:facet>
+												<h:outputText value="#{pr.projectCode}"/>
+											</h:column>
+											<h:column>
+												<f:facet name="header">
+													<h:outputText value="Project name"/>
+												</f:facet>
+												<h:outputText value="#{pr.projectName}"/>
+											</h:column>
+											<h:column>
+												<f:facet name="header">
+													<h:outputText value="Description"/>
+												</f:facet>
+												<h:outputText value="#{pr.description}"/>
+											</h:column>
+											<h:column>
+												<f:facet name="header">
+													<h:outputText value="Status"/>
+												</f:facet>
+												<h:outputText value="#{pr.masterDatas.masterDataCode}"/>
+											</h:column>
+											
+											<h:column>
+												<f:facet name="header">
+													<h:outputText value="Selected"/>
+												</f:facet>
+												<h:selectBooleanCheckbox  value = "#{ck=(projects_bean.check(pr.projectId) ? 'true':'false')}" disabled = "#{ck}" onclick="pushIdToList(#{pr.projectId})" styleClass= "check icheckbox_flat-green" />
+											</h:column>
+									  
+									</h:dataTable>
+				                </div>
+				                <div class="clearfix"></div>
+				                <!--table footer
+				                <div class="col-sm-12 " >
+				                	<div class ="table_footer">
+							            <div class='col-sm-5' >
+							            <h:form>
+								                <button class="btn btn-default"> 
+								                	<i class="fa fa-fast-backward"></i>
+								                </button>
+								                <button class="btn btn-default"> 
+								                	<i class="fa fa-step-backward"></i>
+								                </button>
+												
+												<h:inputText styleClass="text-box-search" id="txtSearch" value="1" />
+												<button class="btn btn-default"> 
+								                	<i class="fa fa-step-forward"></i>
+								                </button>
+								                <button class="btn btn-default"> 
+								                	<i class="fa fa-fast-forward"></i>
+								                </button>
+												
+												
+											</h:form>		
+								        </div>
+								        
+								        <div class='col-sm-4 float-right' >
+								                    
+								            <div class="form-group float-right" >
+								                        <label>Page 1 of 1 (<h:outputText value="#{projects_bean.Count()}" /> items) </label>
+								            </div>
+								        </div> 
+								        <div class="clearfix"></div>
+								        
+							        </div>
+						        </div>
+						        table footer-->
+						        <div class="ln_solid"></div>
+						        <div class="col-sm-12 " >
+									<button type="button" class="btn btn-primary" disabled="true" onclick="save()" data-toggle="modal" data-target="#modal-submit">Save</button>
+									<button type="button" id="checkAll" onclick="selectAll();" class="btn btn-primary" > Check All </button>
+									<button type="button" class="btn btn-primary" > Export </button>
+								</div>
+				            </div>
+			            
+			        </div>
+			        
+			        
+			    </div>
+                </div>
+                <div class="x_panel">
+                	
+                	
+                </div>
+              </div>
+            </div>
+            <!-- Save modal -->
+            <div class="modal fade bs-example-modal-lg" id="modal-submit" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-sm modal-delete">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel">Confirm:</h4>
+                        </div>
+                        
+                        <div class="modal-footer">
+                        	<h:form>
+                        		<div class="save">
+                        			<h:inputText id="txtid" value="#{txtidx}" />
+                        		</div>
+                          		<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                          
+                          		<h:commandButton styleClass="btn btn-primary"  action="#{projects_bean.saveListProjectDefault(txtidx)}" value="Save" />
+                          </h:form>
+                        </div>
+
+                      </div>
+                    </div>
+            </div>
+			<!--  Save modal -->
+			<script type="text/javascript">
+				
+				var lstIdCkeck = [];
+				function pushIdToList(id)
+					{
+						var i = lstIdCkeck.indexOf(id);
+						if (i != -1) {
+						    lstIdCkeck.splice(i,1);
+						}
+						else
+						{
+							lstIdCkeck.push(id);
+						}
+						
+					};
+				function save()
+				{
+					//xxx();
+					//alert(lstIdCkeck);
+					document.querySelector(".save input").value = lstIdCkeck.valueOf();
+				};
+			</script>
+            <!-- =================================================================================================-->	
+    		</ui:define>
+		</ui:composition>
+		
+    </h:body>
+
+</html>

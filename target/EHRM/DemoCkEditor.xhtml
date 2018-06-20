@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      
+      >
+    <h:body>
+    	
+    	<ui:composition template="/template/common/commonLayout.xhtml">
+    		<!-- Thay ten trang tuong ung -->
+    		<ui:define name="title">
+    			Demo Ck Editor
+    		</ui:define>
+    	
+    		<ui:define name="content">
+    		<!-- xoa phan phan khung duoi di, thay vao noi dung tuong ung. -->
+    		<!-- =================================================================================================-->
+    			
+    			<div class="row">
+            		<div class="col-md-12 col-sm-12 col-xs-12">
+            	       <!-- 		 
+                            <h:inputTextarea cols="20" rows="100" id="texteditor"></h:inputTextarea> 
+            				<textarea class="form-control col-md-7 col-xs-12" rows="4" cols="20" id="texteditor" onclick="editClick();" paceholder="  Chú thích..."></textarea> 
+                        -->
+                            <br/>
+                            <br/>
+                            <h:inputText required="false" value="#{text='test vl'}" id="txthidden" styleClass="form-control " />
+                            <br/>
+                            <textarea class="form-control col-md-7 col-xs-12" rows="4" cols="20" id="texteditor" name="texteditor" onclick="editClick();">
+                                <h:outputText value="#{text}"/>
+                            </textarea>
+                            <!-- 
+                                <h:commandButton id="saveButton" value="Save" 
+                                     onclick="document.getElementById('txthidden').value = CKEDITOR.instances.texteditor.getData();" 
+                                     action="#{editorBean.save()}"/>
+                                 
+                            -->
+                            <br/>
+                            <br/>
+
+                             <button type="button" class="btn btn-primary"  onclick="document.getElementById('txthidden').value = CKEDITOR.instances.texteditor.getData();"  >Push value into text box</button>
+            		</div>
+                    
+            	</div>
+        	<script>
+					
+        	function editClick() {
+				var editor = CKEDITOR.replace('texteditor', {uiColor: '#F7F7F7'});
+				CKFinder.setupCKEditor(editor,'resources/js/ckfinder');
+                CKEDITOR.config.resize_enabled = false;
+                CKEDITOR.config.height = '100px';
+                CKEDITOR.config.width = '650px';
+                //CKEDITOR.instances.texteditor.setData(#{text});
+                //CKEDITOR.instances.texteditor.setData(document.getElementById('txthidden').value);
+			}
+            </script>
+            <!-- =================================================================================================-->	
+    		</ui:define>
+		</ui:composition>
+    </h:body>
+
+</html>

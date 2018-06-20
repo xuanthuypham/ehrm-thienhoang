@@ -1,0 +1,443 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<body> 
+    		<div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Employee information</h2>
+                    
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                  	<!-- search-->
+			        <div class="container">
+			            	<div class="row">
+			            
+ <!-- colum 1                         -->
+				                <div class="col-sm-6 form-horizontal">
+				                
+				                <div class="form-group">
+				                <div class="col-sm-5">
+				                    Title:	
+				                 </div>
+				                    	<div class="col-sm-7" >                          
+											<h:outputText styleClass="form-control" value="#{employeeBean.employee.masterDatasByTitleId.masterDataDescription}" />
+									   </div>		
+								</div>
+										
+								<div class="form-group">								   
+								<div class="col-sm-5">
+				                   First name:
+				                </div>
+				                    <div class="col-sm-7">
+				                            <h:outputText styleClass="form-control" value="#{employeeBean.employee.firstName}" />
+				                     </div>
+				                 </div>	
+				               
+				               <div class="form-group">      
+				                <div class="col-sm-5">
+				                	Last name:
+				                </div>
+				                	<div class="col-sm-7">
+				                    	<h:outputText styleClass="form-control" value="#{employeeBean.employee.lastName}" />
+				                    </div>
+				                </div>
+				                
+				                <div class="form-group">
+								 <div class="col-sm-5">
+				                    Gender	
+				                   </div>
+				                    	<div class="col-sm-7" >                          
+				                            <h:outputText styleClass="form-control" value = "#{employeeBean.employee.masterDatasByGenderId.masterDataDescription}"> 								            
+									         </h:outputText> 
+									   </div>	
+								</div>
+									
+								<div class="form-group">		                     	                
+				                <div class="col-sm-5">
+				                	8-ID
+				                	</div>
+				                	<div class="col-sm-7">
+				                    <h:outputText styleClass="form-control" value="#{employeeBean.employee.identifyCompany}" />
+				                    </div>
+									</div>
+
+								<div class="form-group">
+				                <div class="col-sm-5">
+				                	Attendance Code
+				                	</div>
+				                	<div class="col-sm-7">
+				                    <h:outputText styleClass="form-control" value="#{employeeBean.employee.attendancecode}" />
+				                    </div>
+				                    </div>				                    
+
+							<div class="form-group">
+				                <div class="col-sm-5">
+				                	First name native:
+				                	</div>
+				                	<div class="col-sm-7">
+				                    <h:outputText styleClass="form-control" value="#{employeeBean.employee.firstNameNative}"  />
+				                </div>
+				                </div>
+
+				                <div class="form-group">
+				                <div class="col-sm-5">
+				                	Last name native:
+				                </div>
+				                <div class="col-sm-7">
+				                    <h:outputText styleClass="form-control" value="#{employeeBean.employee.lastNameNative}" />
+				                    </div>
+				                </div>
+				                
+				                	<div class="form-group">
+				                <div class='col-sm-5'>
+				                	Permanent address VN:
+				                </div>
+				                	<div class="col-sm-7">
+				                    <h:outputText styleClass="form-control" value="#{employeeBean.employee.permanentAddressVietnamese}" />
+				                    </div>
+				                </div>
+				                
+				                <div class="form-group">
+				                <div class='col-sm-5'>
+				                Date of birth:
+				                </div>
+				                <div class="col-sm-1">
+				                	<h:selectBooleanCheckbox value="true" disabled="true" />
+				                	</div>
+				                	<div class="col-sm-6">
+				                    <h:outputText styleClass="form-control" value="#{employeeBean.employee.dateOfBirth}"/>
+				                    </div>
+				                </div>
+				                
+				                	<div class="form-group">
+				                <div class='col-sm-5'>
+				                	Number of Social Book
+				                	</div>
+				                	<div class="col-sm-7">
+				                    <h:outputText id="socialbookid" styleClass="form-control" value="#{employeeBean.employee.socialBookNo}" />
+				                    </div>
+				                </div>
+				                
+				                    <div class="form-group">			                
+				                <div class='col-sm-5'>
+				                    Nationality
+				                    </div>
+				                    	<div class="col-sm-7" >                          
+				                            <h:outputText styleClass="form-control" value = "#{employeeBean.employee.masterDatasByNationalityId.masterDataDescription}">  									            
+									         </h:outputText> 
+									   </div>
+								</div>
+								
+				                <div class="form-group">
+				                <div class='col-sm-5'>
+				                	Is foreigner:
+				                	</div>
+				                	<div class="col-sm-7">
+									<h:selectBooleanCheckbox value="#{employeeBean.employee.isForeigner}" disabled="true" />
+									</div>
+				                </div>	
+				                
+				                <div class="form-group">
+				                <div class='col-sm-5'>
+				                	Foreigner contact:
+				                	</div>
+				                	<div class="col-sm-7">
+				                    <h:outputText styleClass="form-control" value="#{employeeBean.employee.foreignerContact}" />
+				                </div> 
+				                </div>
+				                
+	                			<div class="form-group">
+				                <div class='col-sm-5'>
+				                	Foreigner cellphone
+				                	</div>
+				                	<div class="col-sm-7">
+				                    <h:outputText styleClass="form-control" value="#{employeeBean.employee.foreignerCellphone}" />
+				                    </div>
+				                </div> 
+				                
+				                <div class="form-group">
+				                <div class='col-sm-5'>
+				                	Foreigner address:
+				                </div>
+				                <div class="col-sm-7">
+				                    <h:outputText styleClass="form-control" value="#{employeeBean.employee.foreignerHomephone}" />
+				                    </div>
+				                </div>
+				                
+								<div class="form-group">
+				                <div class='col-sm-5'>
+				                	ID card:
+				                </div>
+				                <div class="col-sm-7">
+				                    <h:outputText styleClass="form-control" value="#{employeeBean.employee.idCard}"/>
+				                </div> 
+				               </div>	
+				 
+				 			<div class="form-group">              
+				             <div class='col-sm-5'>
+				                	ID card issued date:
+				              </div> 
+				              <div class="col-sm-1">
+				                	<h:selectBooleanCheckbox value="true" disabled="true" />
+				              </div>
+				              <div class="col-sm-6">  	
+				                    <h:outputText  styleClass="form-control" value="#{employeeBean.employee.idCardIssuedDate}"/>
+				         					 <span class="fa fa-calendar-o form-control-feedback right" aria-hidden="true"></span>
+				         		</div>
+				                </div>
+				                
+				                <div class="form-group">
+				                <div class='col-sm-5'>
+				                	ID card issued place:
+				                </div>
+				                <div class="col-sm-7">
+				                    <h:outputText styleClass="form-control" value="#{employeeBean.employee.idCardIssuedPlace}"/>
+				                    </div>
+				                </div> 				                
+				                
+				                <div class="form-group">
+				                 <div class='col-sm-5'>
+				                	Passport expiry date: 
+				                </div>
+				                <div class="col-sm-1">
+				                	<h:selectBooleanCheckbox value="true" disabled="true" />
+				                </div>
+				                <div class="col-sm-6">
+				                    <h:outputText  styleClass="form-control" value="#{employeeBean.employee.passportExpiryDate}" />
+				         					 <span class="fa fa-calendar-o form-control-feedback right" aria-hidden="true"></span>
+								</div>
+        						</div>
+							<div class="form-group">
+				              <div class='col-sm-5'>
+				                	PIT Code:
+				               </div>
+				               <div class="col-sm-7">
+				                    <h:outputText styleClass="form-control" value="#{employeeBean.employee.pitCode}" />
+				                </div>
+				               </div> 
+
+							<div class="form-group">
+        						<div class='col-sm-5'>
+				                	Start date: 
+				                </div>
+				                <div class="col-sm-7">
+				                    <h:outputText  styleClass="form-control" value="#{employeeBean.employee.workingStartDate}" />
+				         					 <span class="fa fa-calendar-o form-control-feedback right" aria-hidden="true"></span>
+				         		</div>
+        						</div>	
+        						
+        						<div class="form-group">
+				                 <div class='col-sm-5'>
+				                	Registered stop working date:
+				                </div>
+				                <div class="col-sm-1"> 
+				                	<h:selectBooleanCheckbox value="true" disabled="true"/>
+				                </div>
+				                <div class="col-sm-6">
+				                    <h:outputText  styleClass="form-control" value="#{employeeBean.employee.registerStopWorking}" />
+				         					 <span class="fa fa-calendar-o form-control-feedback right" aria-hidden="true"></span>
+        						</div>
+        						</div>
+        						   
+        						  <div class="form-group">
+ 				                 <div class='col-sm-5'>
+				                	Actual stop working date:
+				                </div>
+				                <div class="col-sm-1">
+				                	<h:selectBooleanCheckbox value="true" disabled="true"/>
+				                </div>
+				                <div class="col-sm-6">
+				                    <h:outputText  styleClass="form-control" value="#{employeeBean.employee.actualStopWorking}" />
+				         					 <span class="fa fa-calendar-o form-control-feedback right" aria-hidden="true"></span>
+									</div>
+        						</div>
+        						
+        						<div class="form-group">
+ 				               <div class='col-sm-5'>
+				                	Is replace:
+				                </div>
+				                <div class="col-sm-7">
+									<h:selectBooleanCheckbox value="#{employeeBean.employee.isreplace}" disabled="true" />
+									</div>
+				                </div> 
+        						       						        									                  				               			                 				                				                				                											                				                				                
+				                </div>
+<!-- Colum 1 -->		             
+				                
+				                
+
+<!-- abcsfklsgjsaklgjsklagjjaslgklasgksjgslsgk -->				                
+				                <div class="col-sm-6 form-horizontal">
+				               <div class="form-group">
+				                <div class="col-sm-5" style="font-size: 12.5px;">
+				                	Permanent address ENG
+				                	</div>
+				                	<div class="col-sm-7">
+				                    <h:outputText styleClass="form-control" value="#{employeeBean.employee.permanentAddressEnglish}" />
+				                    </div>
+				                </div>
+				                
+
+				                
+				                	<div class="form-group">				                
+				                <div class='col-sm-5'>
+				                	Birth location:
+				                	</div>
+				                	<div class="col-sm-7">
+				                    <h:outputText styleClass="form-control" value="#{employeeBean.employee.birthLocation}" escape="false" />
+				                    </div>
+				                </div>
+
+				                <div class="form-group">
+				                <div class='col-sm-5'>
+				                	Active:
+				                </div>
+				                <div class="col-sm-7">
+				             		<h:selectBooleanCheckbox value="#{employeeBean.employee.active}" disabled="true" />
+				             		</div>
+				                </div>
+
+				                    <div class="form-group">
+				                <div class='col-sm-5'>
+				                    Martial status:
+				                    </div>
+				                    	<div class="col-sm-7" >                          
+				                            <h:outputText styleClass="form-control" value = "#{employeeBean.employee.masterDatasByMaritalStatusId.masterDataDescription}" disabled="true"> 
+									         </h:outputText> 
+									   </div>
+				                </div>
+				                
+
+								<div class="form-group">
+				                <div class='col-sm-5'>
+				                	Native country:
+				                </div>
+				                <div class="col-sm-7">
+				                    <h:outputText styleClass="form-control" value="#{employeeBean.employee.nativeCountry}"/>
+				                </div>
+				                </div>
+				                 
+				                 
+				                 <div class="form-group">
+				                <div class='col-sm-5'>
+				                	Passport number:
+				                </div>
+				                <div class="col-sm-7">
+				                    <h:outputText styleClass="form-control" value="#{employeeBean.employee.passportNumber}" />
+				                </div> 
+				                </div>
+ 
+ 								<div class="form-group">
+				                <div class='col-sm-5'>
+				                	Passport issued date:
+				                </div> 
+				                <div class="col-sm-1">
+				                	<h:selectBooleanCheckbox value="true" disabled="true" />
+				                </div>
+				                <div class="col-sm-6">
+				                    <h:outputText  styleClass="form-control" value="#{employeeBean.employee.passportIssuedDate}" />
+				         					 <span class="fa fa-calendar-o form-control-feedback right" aria-hidden="true"></span>
+				                </div>  
+				                </div>
+								
+								<div class="form-group">
+				                <div class='col-sm-5'>
+				                	Passport issued place:
+				                	</div>
+				                	<div class="col-sm-7">
+				                    <h:outputText styleClass="form-control" value="#{employeeBean.employee.passportIssuedPlace}" />
+				                </div>
+				                </div>
+				                 
+				                 <div class="form-group">
+        						<div class='col-sm-5'>
+				                	More information:
+				                </div>
+				                <div class="col-sm-7">
+				                    <h:outputText styleClass="form-control" value="#{employeeBean.employee.moreInformation}" />
+				                </div>
+				                </div>
+
+								<div class="form-group">
+				                 <div class='col-sm-5'>
+				                	End of probation:
+				                </div>
+				                <div class="col-sm-7"> 
+				                    <h:outputText  styleClass="form-control" value="#{employeeBean.employee.probationEndDate}" />
+				         					 <span class="fa fa-calendar-o form-control-feedback right" aria-hidden="true"></span>
+        						</div>
+        						</div>
+
+								<div class="form-group">
+        						<div class='col-sm-5'>
+				                	Seniority:
+				                </div>
+				                <div class="col-sm-7">
+				                    <h:outputText value="" styleClass="form-control" />
+				                </div>
+				                </div>
+
+				                   <div class="form-group">
+        						<div class='col-sm-5'>
+				                    Reason:
+				                 </div>
+				                   <div class="col-sm-7" >                          
+				                            <h:outputText styleClass="form-control" value = "#{employeeBean.employee.reasonForLeaving}" disabled="true"> 
+									         </h:outputText> 
+									         </div> 
+									   </div>
+				              
+				              <div class="form-group">
+        						<div class='col-sm-5'>
+				                	Is in union:
+				                </div>
+				                <div class="col-sm-7">
+									<h:selectBooleanCheckbox value="#{employeeBean.employee.isInUnion}" />
+				                </div>
+				                </div> 				                		                
+
+				                
+				                					                				                				                				                			                			                	
+				                </div>
+
+<!-- ksfldgjkasgjskljgklasjgklasgklas -->
+
+
+							<div class="clearfix"></div>
+							<h:form>
+				             <div class="col-sm-12 " >
+									<h:commandButton action="#{employeeBean.updateEmployeeNavigate}" value="Edit" styleClass="btn btn-primary" />
+
+									<button class="btn btn-primary" > Generate report </button>
+								</div>
+								</h:form>
+							</div>
+			        </div>
+			    </div>
+                </div>
+     
+				                <div class="clearfix"></div>
+				                  
+				            </div>
+			        </div>
+			        
+			        
+
+                <div class="x_panel">
+                	
+                	
+                </div>
+           
+
+
+        	
+            <!-- =================================================================================================-->	
+</body> 
+</html>

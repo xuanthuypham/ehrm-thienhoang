@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      
+      >
+    <h:body>
+    	
+    	<ui:composition template="/template/common/commonLayout.xhtml">
+    		<!-- Thay ten trang tuong ung -->
+    		<ui:define name="title">
+    			List employees
+    		</ui:define>
+    	
+    		<ui:define name="content">
+    		<!-- xoa phan phan khung duoi di, thay vao noi dung tuong ung. -->
+    		<!-- =================================================================================================-->
+    			
+    		<div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+              	<h2><strong>Manage employee income</strong></h2>
+              	<hr/>
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Search</h2>
+                    
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                  	<!-- search-->
+			        <div class="container">
+			            <h:form>
+			            	<div class="row">
+
+				                <div class='col-sm-4'>
+				                    Keyword:
+				                    <div class="form-group">
+				                        <div class="form-group">
+				                            
+				                            <h:inputText styleClass="form-control" value="abc" />
+				                            
+				                        </div>
+				                    </div>
+				                </div>
+
+				                <div class='col-sm-4'>
+				                   
+				                </div>
+				                
+				                 <div class='col-sm-4'>
+				                    
+				                </div>
+
+				                <div class="clearfix"></div>
+				                <div class='col-sm-4'>
+				                    <h:commandButton styleClass="btn btn-primary" action="#{projects_bean.search()}" value="Search" />
+				                </div>
+				                <div class="clearfix"></div>
+				                <div class='col-sm-4'>
+				                    <!--<h:commandButton styleClass="btn btn-primary" action="#{projects_bean.search()}" value="Search" /> -->
+				                    <a href="#">Advanced search</a>
+				                </div>
+				                 
+				            </div>
+			            </h:form>
+			        </div>
+			        
+			        
+			    </div>
+                </div>
+                <!-- show table-->
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>List employees</h2>
+                    
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                  	<!-- search-->
+			        <div class="container">
+			            
+			            	<div class="row">
+				                
+				               <div class="clearfix"></div>
+				                <div class="col-sm-12">
+				                	<h:dataTable id= "datatable" styleClass="table table-striped table-bordered dataTable no-footer" var="empp" value="#{payroll_bean.listEmp}" >
+									  		<h:column >
+												<f:facet name="header" style="width: 0px;">
+													<span style="text-align: center;" class="glyphicon glyphicon-file" aria-hidden="true"></span>
+												</f:facet>
+												
+												<!-- <a href="${pageContext.request.contextPath}/payroll/payroll.xhtml"><i class="fa fa-file-o"></i></a>  -->
+												<h:form>
+													
+													<h:commandLink action="#{payroll_bean.payrolldetail()}" value="" >
+														<i class="fa fa-file-o"></i>
+													</h:commandLink>
+												</h:form>		
+													
+												
+											</h:column>
+											<h:column>
+											  	<f:facet name="header">8-ID</f:facet>
+											  
+											  	<h:outputText value="#{empp.identifyCompany}" />
+											</h:column>
+											<h:column>
+												<f:facet name="header">First name</f:facet>
+												<h:outputText value="#{empp.firstName}" />
+											</h:column>
+											<h:column>
+											  	<f:facet name="header">Last name</f:facet>
+											  	<h:outputText value="#{empp.lastName}" />
+											</h:column>
+											<h:column>
+											  	<f:facet name="header">Start date</f:facet>
+											  	<h:outputText value="#{empp.workingStartDate}" />
+											</h:column>
+											<h:column>
+											  	<f:facet name="header">End of probation</f:facet>
+											  	<h:outputText value="#{empp.probationEndDate}" />
+											</h:column>
+											
+									</h:dataTable>
+				                </div>
+				                <div class="clearfix"></div>
+				                
+						        <div class="ln_solid"></div>
+						        
+				            </div>
+			            
+			        </div>
+			        
+			        
+			    </div>
+                </div>
+                <div class="x_panel">
+                	
+                	
+                </div>
+              </div>
+            </div>
+            
+
+        	<script type="text/javascript">
+			   
+			</script>
+            <!-- =================================================================================================-->	
+    		</ui:define>
+		</ui:composition>
+	
+    </h:body>
+
+</html>

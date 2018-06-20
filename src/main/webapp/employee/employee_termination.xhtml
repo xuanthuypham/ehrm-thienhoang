@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+
+<body> 
+    		<!-- xoa phan phan khung duoi di, thay vao noi dung tuong ung. -->
+    		<!-- =================================================================================================-->
+    			
+    		<div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_content">
+                  	<!-- search-->
+			        <div class="container">
+			 <div class="row">
+
+                <!-- show table-->
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>View information current job</h2>
+                    
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                  	<!-- search-->
+			        <div class="container">
+			            	<div class="row">
+				             <form>
+                          	 <div class='col-sm-6'>
+                          	 <div class="col-sm-4 cfg-label">
+                          	 	Resign/Retire date:
+                          	 </div>
+                          	 <div class="col-sm-8">
+               					 <div class="form-group">
+									<h:outputText  styleClass="form-control"></h:outputText>	
+									</div>			              
+				                </div>
+
+				            		<div class="col-sm-4 cfg-label">
+				                    	Offical last day:
+				                    </div>
+				                        <div class="form-group" >
+				                        	<div class="col-sm-8">
+				                            <h:outputText styleClass="form-control" />
+				                            </div>
+				                        </div>
+				                        
+				            		<div class="col-sm-4 cfg-label">
+				                    	Remark:
+				                    </div>
+				                        <div class="form-group" >
+				                        	<div class="col-sm-8">
+				                            <h:outputText styleClass="form-control" />
+				                            </div>
+				                        </div>
+	
+				                        				                        				                                          	 
+                          	 </div>
+
+			                 <div class='col-sm-6'>
+			                 <div class="col-sm-4 cfg-label">
+			                 	Last day:
+			                 </div>
+					              <div class="form-group">
+				                    <div class="col-sm-8">
+				                         <h:outputText styleClass="form-control" />
+				                         </div>
+				                    </div>
+				                    
+				                	<div class="col-sm-6 cfg-label">
+				                		<label>Reason of resignation:</label>
+				                	</div>
+				                	<div class="form-group">
+				                	<div class="col-sm-6">
+				                			<h:outputText styleClass="form-control"></h:outputText>
+				                		</div>
+				                	</div>		
+
+				            		<div class="col-sm-4 cfg-label">
+				                    	Account number:
+				                    </div>
+				                        <div class="form-group" >
+				                        	<div class="col-sm-8">
+				                            <h:outputText styleClass="form-control" />
+				                            </div>
+				                        </div>				                			                    
+				                </div>
+      			                			                
+						        <div class="col-sm-12 " >
+									<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-edit-termination">Edit</button>
+
+								</div>
+								</form>
+				            </div>
+			            
+			        </div>
+			        </div>
+			        </div>
+			    </div>
+				</div>
+                </div>
+            </div>
+            </div>
+            </div>
+
+			<!--  Edit modal -->
+
+           <div class="modal fade bs-example-modal-lg" id="modal-edit-termination" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-delete">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel">Termination information: </h4>
+                        </div>
+                        <form>
+                        <div class="modal-body form-horizontal">
+                           <div class='col-sm-12'>
+                          	 <div class="col-sm-5 cfg-label">
+                          	 	Resign/Retire date:
+                          	 </div>
+                          	 <div class="col-sm-7">
+               					 <div class="form-group">
+									<h:inputText  styleClass="form-control xdisplay_inputx has-feedback"></h:inputText>	
+				         					 <span class="fa fa-calendar-o form-control-feedback right" aria-hidden="true"></span>
+									
+									</div>			              
+				                </div>
+				                </div>
+			                 <div class='col-sm-12'>
+			                 <div class="col-sm-5 cfg-label">
+			                 	Last day:
+			                 </div>
+					              <div class="form-group">
+				                    <div class="col-sm-7">
+				                         <h:inputText styleClass="form-control xdisplay_inputx has-feedback" />
+				                         <span class="fa fa-calendar-o form-control-feedback right" aria-hidden="true"></span>
+				                         
+				                         </div>
+				                    </div>
+				                </div>
+				                <div class="clearfix"></div>
+				            	<div class='col-sm-12'>
+				            		<div class="col-sm-5 cfg-label">
+				                    	Official last day:
+				                    </div>
+				                        <div class="form-group" >
+				                        	<div class="col-sm-7">
+				                            <h:inputText styleClass="form-control xdisplay_inputx has-feedback" />
+				                            <span class="fa fa-calendar-o form-control-feedback right" aria-hidden="true"></span>
+				                            
+				                            </div>
+				                        </div>
+				                </div>
+				                <div class="clearfix"></div>
+				                <div class="col-sm-12">
+				                	<div class="col-sm-5 cfg-label">
+				                		<label>Reason of resignation:</label>
+				                	</div>
+				                	<div class="form-group">
+				                	<div class="col-sm-7">
+					                <h:selectOneMenu styleClass="form-control" value = "#{data}"> 
+									            <f:selectItem itemValue = "1" itemLabel = "-[Select]-" /> 
+									            <f:selectItem itemValue = "2" itemLabel = "Thien Hoang" /> 
+									            
+									</h:selectOneMenu>
+				                		</div>
+				                	</div>
+				                </div>      
+				                <div class="clearfix"></div>
+				           		<div class='col-sm-12'>
+				            		<div class="col-sm-5 cfg-label">
+				                    	Remark:
+				                    </div>
+				                        <div class="form-group" >
+				                        	<div class="col-sm-7">
+				                            <h:inputText styleClass="form-control" />
+				                            </div>
+				                        </div>
+				                </div>
+				            	<div class='col-sm-12'>
+				            		<div class="col-sm-5 cfg-label">
+				                    	Account number:
+				                    </div>
+				                        <div class="form-group" >
+				                        	<div class="col-sm-7">
+				                            <h:inputText styleClass="form-control" />
+				                            </div>
+				                        </div>
+				                </div>	
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-primary">Save </button>
+                           <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        </div>
+                    	</form>
+                      </div>
+                    </div>
+            </div>       	
+            <!-- =================================================================================================-->	
+</body> 
+</html>

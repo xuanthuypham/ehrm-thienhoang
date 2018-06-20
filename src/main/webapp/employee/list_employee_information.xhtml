@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+   <h:body>
+    	<ui:composition template="/template/common/commonLayout.xhtml">
+    		<!-- Thay ten trang tuong ung -->
+    		<ui:define name="title">
+    			Demo Ck Editor
+    		</ui:define>
+    	
+    		<ui:define name="content">
+    		<!-- xoa phan phan khung duoi di, thay vao noi dung tuong ung. -->
+    		<!-- =================================================================================================-->
+    		<div class="">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+						<p><b>8-ID</b><h:outputLabel value="#{employeeBean.employee.identifyCompany}" />          <b>Full name:</b><h:outputLabel value="#{employeeBean.employee.lastName} #{employeeBean.employee.firstName}" /> </p>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+
+                     <div class="boot-tab-slider">
+                       
+                      	<a href="#" class="boot-tab-slider__scroll-left"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span></a> 
+                        <a href="#" class="boot-tab-slider__scroll-right"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></a>
+                        <div class="boot-tab-slider__wrapper">
+                         
+                          <ul class="nav nav-tabs" role="tablist" id="exampleNav">
+                            <li role="presentation" class="active"><a href="#general" aria-controls="general" role="tab" data-toggle="tab">General</a></li>
+                            <li role="presentation"><a href="#unit" aria-controls="unit" role="tab" data-toggle="tab">Unit</a></li>
+                            <li role="presentation"><a href="#position" aria-controls="position" role="tab" data-toggle="tab">Position</a></li>
+                            <li role="presentation"><a href="#contract" aria-controls="contract" role="tab" data-toggle="tab">History of contract</a></li>
+                            <li role="presentation"><a href="#currentjob" aria-controls="currentjob" role="tab" data-toggle="tab">Current job</a></li>
+                            <li role="presentation"><a href="#relations" aria-controls="relations" role="tab" data-toggle="tab">Relations</a></li>
+                            <li role="presentation"><a href="#dependant" aria-controls="dependant" role="tab" data-toggle="tab">Dependant</a></li>
+                            <li role="presentation"><a href="#bankdetails" aria-controls="bankdetails" role="tab" data-toggle="tab">Bank details</a></li>
+                            <li role="presentation"><a href="#email" aria-controls="email" role="tab" data-toggle="tab">Email</a></li>
+                            <li role="presentation"><a href="#phone" aria-controls="phone" role="tab" data-toggle="tab">Phone</a></li>
+                            <li role="presentation"><a href="#language" aria-controls="language" role="tab" data-toggle="tab">Language Level</a></li>
+                            <li role="presentation"><a href="#education" aria-controls="education" role="tab" data-toggle="tab">Education Level</a></li>
+                            <li role="presentation"><a href="#approval" aria-controls="approval" role="tab" data-toggle="tab">Approval Contact</a></li>
+                            <li role="presentation"><a href="#termination" aria-controls="termination" role="tab" data-toggle="tab">Termination</a></li>
+                            <li role="presentation"><a href="#assignment" aria-controls="assignment" role="tab" data-toggle="tab">Assignment</a></li>
+                            <li role="presentation"><a href="#rank" aria-controls="rank" role="tab" data-toggle="tab">Rank</a></li>
+                            <li role="presentation"><a href="#attachment" aria-controls="attachment" role="tab" data-toggle="tab">Attachment</a></li>
+                          </ul>
+                        </div>
+                       
+                        <div class="tab-content">
+                          
+                          <div role="tabpanel" class="tab-pane active" id="general">
+							   	<ui:include src="/employee/general.xhtml" />
+                          </div>
+                          <div role="tabpanel" class="tab-pane fade" id="unit">
+                          		<ui:include src="/employee/employee_unit.xhtml" />
+                         </div>
+                          <div role="tabpanel" class="tab-pane fade" id="position">
+                          		<ui:include src="/employee/employee_position.xhtml" />
+                          </div>
+                          <div role="tabpanel" class="tab-pane fade" id="contract">
+                          		<ui:include src="/employee/employee_contract.xhtml" />
+                          </div>
+                          <div role="tabpanel" class="tab-pane fade" id="currentjob">
+                          		<ui:include src="/employee/employee_currentjob.xhtml" />
+                          </div>
+                          <div role="tabpanel" class="tab-pane fade" id="relations">
+                          		<ui:include src="/employee/employee_relations.xhtml" />
+                          </div>
+                          <div role="tabpanel" class="tab-pane fade" id="dependant">
+								<ui:include src="/employee/employee_dependant.xhtml" />
+                          </div>
+                          <div role="tabpanel" class="tab-pane fade" id="bankdetails">
+                          		<ui:include src="/employee/employee_bank.xhtml" />
+                          </div>
+                          <div role="tabpanel" class="tab-pane fade" id="email">
+                          		<ui:include src="/employee/employee_email.xhtml" />
+                          </div>
+                          <div role="tabpanel" class="tab-pane fade" id="phone">
+                          		<ui:include src="/employee/employee_phone.xhtml" />
+                          </div>
+                          <div role="tabpanel" class="tab-pane fade" id="language">
+                          		<ui:include src="/employee/employee_languagelevel.xhtml" />
+                          </div>
+                          <div role="tabpanel" class="tab-pane fade" id="education">
+                          		<ui:include src="/employee/employee_education.xhtml" />
+                          </div>
+                          <div role="tabpanel" class="tab-pane fade" id="approval">
+                          		<ui:include src="/employee/employee_approval_contact.xhtml" />
+                          </div>
+                          <div role="tabpanel" class="tab-pane fade" id="termination">
+                          		<ui:include src="/employee/employee_termination.xhtml" />
+                          </div>
+                           <div role="tabpanel" class="tab-pane fade" id="assignment">
+                          		<ui:include src="/employee/employee_assignment.xhtml" />
+                          </div>
+                          <div role="tabpanel" class="tab-pane fade" id="rank">
+                          		<ui:include src="/employee/employee_rank.xhtml" />
+                          </div>
+                           <div role="tabpanel" class="tab-pane fade" id="attachment">
+                          		<ui:include src="/employee/employee_attachment.xhtml" />
+                          </div>                                                                            
+                        </div>
+                      </div>
+
+
+                  </div>
+                </div>
+              </div>
+          </div>
+            <!-- =================================================================================================-->	
+    		</ui:define>
+		</ui:composition>
+
+    </h:body>
+</html>

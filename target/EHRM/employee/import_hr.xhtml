@@ -1,0 +1,286 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<body> 
+    	<ui:composition template="/template/common/commonLayout.xhtml">
+    		<!-- Thay ten trang tuong ung -->
+    		<ui:define name="title">
+    			Danh sách nhân viên
+    		</ui:define>
+    	
+    		<ui:define name="content">
+    		<!-- xoa phan phan khung duoi di, thay vao noi dung tuong ung. -->
+    		<!-- =================================================================================================-->
+    			
+    		<div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+              	<hr/>
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Import HR</h2>
+                    
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                  	<!-- search-->
+			        <div class="container">
+			            	<div class="row">
+				             	<div class="col-sm-12">
+				             	<form>
+				             		<div class="col-sm-8 form-group">
+				             			<div class="col-sm-3">
+				             				<h:outputText value="Data file:"/>
+				             			</div>
+				             			<div class="col-sm-7">
+				             				<input type="file" class="form-control"/>
+				             			</div>
+				             			<div class="col-sm-2">
+				             				<button class="btn btn-primary">Upload</button>
+				             			</div>
+				             		</div>
+				             	</form>
+				             	</div>
+				            </div>
+				            <div class="row">
+				            <form>
+								<div class="col-sm-1">
+									<br />
+									<br />
+									<br />
+									<h:outputText value="Data to import" />
+									<br />
+								</div>
+								<div class="col-sm-3">
+									<div class="form-group">
+										<label for="ei" class="col-sm-10">
+											Employee Info:
+										</label>
+										<div class="col-sm-2">
+											<h:selectBooleanCheckbox id="ei" value="" styleClass="form-control" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="ePIT" class="col-sm-10">
+											Employee's PIT Code:
+										</label>
+										<div class="col-sm-2">
+											<h:selectBooleanCheckbox id="ePIT" value="" styleClass="form-control" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="ed" class="col-sm-10">
+											Employee's Departments:
+										</label>
+										<div class="col-sm-2">
+											<h:selectBooleanCheckbox id="ed" value="" styleClass="form-control" />
+										</div>
+									</div>	
+									
+									
+									<div class="form-group">
+										<label for="eba" class="col-sm-10">
+											Employee's bank account:
+										</label>
+										<div class="col-sm-2">
+											<h:selectBooleanCheckbox id="eba" value="" styleClass="form-control" />
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label for="ebs" class="col-sm-10">
+											Employee's basic salary
+										</label>
+										<div class="col-sm-2">
+											<h:selectBooleanCheckbox id="ebs" value="" styleClass="form-control" />
+										</div>
+									</div>		
+									
+									<div class="form-group">
+										<label for="el" class="col-sm-10">
+											Employee line:
+										</label>
+										<div class="col-sm-2">
+											<h:selectBooleanCheckbox id="el" value="" styleClass="form-control" />
+										</div>
+									</div>	 																																											
+								</div>
+								<div class="col-sm-4">
+									<div class="form-group">
+										<label for="sheet1" class="col-sm-4">
+											Sheet name:
+										</label>
+										<div class="col-sm-8">
+											<h:outputText value="Employees" styleClass="form-control" id="sheet1"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="sheet2" class="col-sm-4">
+											Sheet name:
+										</label>
+										<div class="col-sm-8">
+											<h:outputText value="PIT Code" styleClass="form-control" id="sheet2" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="sheet3" class="col-sm-4">
+											Sheet name:
+										</label>
+										<div class="col-sm-8">
+											<h:outputText value="Dependant" styleClass="form-control" id="sheet3" />
+										</div>
+									</div>	
+									
+									
+									<div class="form-group">
+										<label for="sheet4" class="col-sm-4">
+											Sheet name:
+										</label>
+										<div class="col-sm-8">
+											<h:outputText value="List of ATM Card" styleClass="form-control" id="sheet4"/>
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label for="sheet5" class="col-sm-4">
+											Sheet name:
+										</label>
+										<div class="col-sm-8">
+											<h:outputText value="Basic Salary" styleClass="form-control" id="sheet5"/>
+										</div>
+									</div>		
+									
+									<div class="form-group">
+										<label for="sheet6" class="col-sm-4">
+											Sheet name:
+										</label>
+										<div class="col-sm-8">
+											<h:outputText value="Line Manager" styleClass="form-control" id="sheet6" />
+										</div>
+									</div>									
+								</div>
+					
+								<div class="col-sm-2">
+									<div class="form-group">
+										<div class="col-sm-9">
+											Starting Row:
+										</div>
+										<div class="col-sm-3">
+											<h:selectBooleanCheckbox value="" styleClass="form-control" />
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-sm-9">
+											Starting Row:
+										</div>
+										<div class="col-sm-3">
+											<h:selectBooleanCheckbox value="" styleClass="form-control" />
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-sm-9">
+											Starting Row:
+										</div>
+										<div class="col-sm-3">
+											<h:selectBooleanCheckbox value="" styleClass="form-control" />
+										</div>
+									</div>	
+									
+									
+									<div class="form-group">
+										<div class="col-sm-9">
+											Starting Row:
+										</div>
+										<div class="col-sm-3">
+											<h:selectBooleanCheckbox value="" styleClass="form-control" />
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<div class="col-sm-9">
+											Starting Row:
+										</div>
+										<div class="col-sm-3">
+											<h:selectBooleanCheckbox value="" styleClass="form-control" />
+										</div>
+									</div>		
+									
+									<div class="form-group">
+										<div class="col-sm-9">
+											Starting Row:
+										</div>
+										<div class="col-sm-3">
+											<h:selectBooleanCheckbox value="" styleClass="form-control" />
+										</div>
+									</div>									
+								</div>
+								
+								<div class="col-sm-2">
+									<div class="form-group">
+										<div class="col-sm-9">
+											Ending Row:
+										</div>
+										<div class="col-sm-3">
+											<h:selectBooleanCheckbox value="" styleClass="form-control" />
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-sm-9">
+											Ending Row:
+										</div>
+										<div class="col-sm-3">
+											<h:selectBooleanCheckbox value="" styleClass="form-control" />
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-sm-9">
+											Ending Row:
+										</div>
+										<div class="col-sm-3">
+											<h:selectBooleanCheckbox value="" styleClass="form-control" />
+										</div>
+									</div>	
+									
+									
+									<div class="form-group">
+										<div class="col-sm-9">
+											Ending Row:
+										</div>
+										<div class="col-sm-3">
+											<h:selectBooleanCheckbox value="" styleClass="form-control" />
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<div class="col-sm-9">
+											Ending Row:										</div>
+										<div class="col-sm-3">
+											<h:selectBooleanCheckbox value="" styleClass="form-control" />
+										</div>
+									</div>		
+									
+									<div class="form-group">
+										<div class="col-sm-9">
+											Ending Row:
+										</div>
+										<div class="col-sm-3">
+											<h:selectBooleanCheckbox value="" styleClass="form-control" />
+										</div>
+									</div>									
+								</div>
+							</form>
+				</div>
+				</div>
+				</div>
+				</div>
+				</div>
+				</div>
+		
+        	
+            <!-- =================================================================================================-->	
+    		</ui:define>
+		</ui:composition>
+</body> 
+</html>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      >
+    <h:body>
+    	
+    	<ui:composition template="/template/common/commonLayout.xhtml">
+    		<!-- Thay ten trang tuong ung -->
+    		<ui:define name="title">
+    			Page1
+    		</ui:define>
+    	
+    		<ui:define name="content">
+    		<!-- xoa phan phan khung duoi di, thay vao noi dung tuong ung. -->
+    		<!-- =================================================================================================-->
+    			
+    			<div class="row">
+            		<div class="col-md-12 col-sm-12 col-xs-12">
+            			<h:form id="loginForm">
+						<p:growl id="msg" showDetail="true" life="3000"/>
+						<p:panel header="login" style="width: 360px;">
+								<h:panelGrid id="loginPanel" columns="2">
+						 
+						              <h:outputText value="Username" />
+						
+						              <p:inputText id="username" value="#{uname}" ></p:inputText>
+						
+						              <p:spacer></p:spacer>
+						
+						              <p:message for="username" ></p:message>
+						
+						              <h:outputText value="Password" />
+						
+						              <p:password id="password" value="#{password}"  feedback="false"></p:password>
+						
+						              <p:spacer></p:spacer>
+						
+						              <p:message for="password"></p:message>
+						
+						              <p:spacer></p:spacer>
+						
+						              
+						 
+						       </h:panelGrid>
+						
+						</p:panel>
+						
+						</h:form>
+            		</div>
+            	</div>
+            	
+            <!-- =================================================================================================-->	
+    		</ui:define>
+		</ui:composition>
+    	
+    </h:body>
+
+</html>

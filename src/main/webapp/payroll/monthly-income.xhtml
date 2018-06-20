@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      
+      >
+    <h:body>
+    	
+    	
+    		<!-- =================================================================================================-->
+    			
+    		<div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+              	
+                <div class="x_panel">
+                  
+                  <div class="x_content">
+                  	<!-- search-->
+			        <div class="container">
+			            <h:form>
+			            	<div class="row">
+
+				                <div class='col-sm-3'>
+				                    Standart working time:
+				                    <div class="form-group">
+				                        <div class="form-group">
+				                            
+				                            <h:inputText styleClass="form-control" value="22days/month" />
+				                            
+				                        </div>
+				                    </div>
+				                </div>
+
+				                <div class='col-sm-3'>
+				                    Currency:
+				                    <div class="form-group">
+				                        <div class="form-group" >
+				                            <h:selectOneMenu  styleClass="form-control" value = "#{payroll_bean.currency}"> 
+									            <f:selectItems var="master_curr" value="#{payroll_bean.getListCrr(9)}" itemValue = "#{master_curr.masterDataId}" itemLabel = "#{master_curr.masterDataCode}" /> 				            
+											</h:selectOneMenu> 
+				                            
+				                        </div>
+				                    </div>
+				                </div>
+				                
+				                 <div class='col-sm-3'>
+				                    Finalcial year:
+				                    <div class="form-group">
+				                        <div class="form-group" >
+											<h:selectOneMenu id="finalcial"  styleClass="form-control" value = "#{payroll_bean.finalcial_year}"> 
+									            <f:selectItems var="master_year" value="#{payroll_bean.getListYear()}" itemValue = "#{master_year.financialYearName}" itemLabel = "#{master_year.financialYearName}" /> 	
+									            <f:ajax event="change"  execute="@this" render="period" />		            
+											</h:selectOneMenu>
+				                            
+				                        </div>
+				                    </div>
+				                </div>
+				                <div class='col-sm-3'>
+				                    Period:
+				                    <div class="form-group">
+				                        <div class="form-group" >
+											<h:selectOneMenu id="period" styleClass="form-control" value = "#{payroll_bean.period}"> 
+									            <f:selectItems var="master_period" value="#{payroll_bean.getListPeriod(payroll_bean.finalcial_year)}" itemValue = "#{master_period.periodName}" itemLabel = "#{master_period.periodName}" /> 				            
+											</h:selectOneMenu>
+				                            
+				                        </div>
+				                    </div>
+				                </div>
+				                <div class="clearfix"></div>
+				                <div class='col-sm-4'>
+				                    
+				                    <h:commandButton styleClass="btn btn-primary" action="#{payroll_bean.returnLink()}" value="Genarate" />
+				                    
+									
+				                </div>
+				                
+				                 
+				            </div>
+			            </h:form>
+			        </div>
+			        
+			        
+			    </div>
+                </div>
+                <!-- show table-->
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>List of incomes</h2>
+                    
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                  	<!-- search-->
+			        <div class="container">
+			            
+			            	<div class="row">
+				                <!--<div style="padding-top: 6px;">
+				                	<div class='col-sm-4' style="padding-top: 5px;">
+					                    <label class="control-label">Drag a column to this area to group:</label>
+					                </div>
+					                
+					                <div class="col-sm-4 float-right" >
+					                    
+					                    <div class='col-sm-4' >
+					                    	<label class="control-label float-right" >Search:</label>
+					                    </div>
+					                    <div class='col-sm-8'>
+					                    	 <div class="form-group" >
+						                        <h:inputText styleClass="form-control" id="txtSearch" onkeyup="searchTable()" />
+						                    </div>
+					                    </div>
+					                   
+					                </div> 
+				                </div>-->
+				                <a href=""></a>
+				                <div class="clearfix"></div>
+				                <div class="col-sm-12">
+				                	<h:dataTable id= "datatable" styleClass="table table-striped table-bordered dataTable no-footer" var="prr" value="#{payroll_bean.getList()}" >
+									  		<h:column>
+												<f:facet name="header">
+													
+													<span style="text-align: center;" class="glyphicon glyphicon-file" aria-hidden="true"></span>
+												</f:facet>
+												<a href="#"  data-toggle="modal" data-target="#modal-edit">
+											    		<i class="fa fa-edit"></i></a>
+											    <a href="#"  data-toggle="modal" data-target="#modal-delete">
+											    		<i class="fa fa-trash"></i></a>
+											</h:column>
+											<h:column>
+												<f:facet name="header">
+													<h:outputText value="Income name"/>
+												</f:facet>
+												<h:outputText value="#{prr.incomes.incomeName}"/>
+											</h:column>
+											<h:column>
+												<f:facet name="header">
+													<h:outputText value="VI"/>
+												</f:facet>
+												<h:outputText value="#{prr.incomes.variableIntermediates.variableIntermediateName}"/>
+											</h:column>
+											<h:column>
+												<f:facet name="header">
+													<h:outputText value="Woring day hours"/>
+												</f:facet>
+												<h:outputText value="0"/>
+											</h:column>
+											<h:column>
+												<f:facet name="header">
+													<h:outputText value="Value"/>
+												</f:facet>
+												<h:outputText value="0"/>
+											</h:column>
+											<h:column>
+												<f:facet name="header">
+													<h:outputText value="Affected value"/>
+												</f:facet>
+												<h:outputText value="0"/>
+											</h:column>
+											<h:column>
+												<f:facet name="header">
+													<h:outputText value="Net value"/>
+												</f:facet>
+												<h:outputText value="0"/>
+											</h:column>
+											
+									  
+									</h:dataTable>
+								<!-- 	<table id="datatable" class="table table-striped table-bordered dataTable no-footer">
+										<thead>
+											<tr>
+												<th>
+													<span style="text-align: center;" class="glyphicon glyphicon-file" aria-hidden="true"></span>
+												</th>
+												<th>Income name</th>
+												<th>Vl</th>
+												<th>Woring day hours</th>
+												<th>Value</th>
+												<th>Affected value</th>
+												<th>Net value</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>
+													<a href="#" data-toggle="modal" data-target="#modal-edit">
+											    		<i class="fa fa-edit"></i></a>
+											    	<a href="#" data-toggle="modal" data-target="#modal-delete">
+											    		<i class="fa fa-trash"></i></a>
+												</td>
+												<td>Office salary 100%</td>
+												<td>SHUI PIT</td>
+												<td>22</td>
+												<td>3.040.000</td>
+												<td>3.800.000</td>
+												<td>7.876.000</td>
+											</tr>
+										</tbody>
+									</table>  -->
+									<div class="ln_solid"></div>
+				                </div>
+				                <div class="clearfix"></div>
+				                
+
+						        
+						        <div class="col-sm-12 " >
+									<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-add">Add New</button>
+
+									<button class="btn btn-primary" > Apply </button>
+								</div>
+				            </div>
+			            
+			        </div>
+			        
+			        
+			    </div>
+                </div>
+                <div class="x_panel">
+                	<div class="x_title">
+                    <h2>Show list of deductions</h2>
+                    
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                  	<!-- search-->
+			        <div class="container">
+			            
+			            	<div class="row">
+				               <div class="clearfix"></div>
+				                <div class="col-sm-12">
+				                	
+									<table id="table" class="table table-striped table-bordered dataTable no-footer">
+										
+										<tbody>
+											<tr>
+												<td>Exchange rate</td>
+												<td>21020</td>
+												<td>Salary income</td>
+												<td>8.800.000</td>
+											</tr>
+											<tr>
+												<td>Inter-bank average exchange rate</td>
+												<td>21000</td>
+												<td>Over time</td>
+												<td></td>
+											</tr>
+											<tr>
+												<td>SI exchange rate</td>
+												<td>1</td>
+												<td>Orther income</td>
+												<td></td>
+											</tr>
+											<tr>
+												<td>PIT decrease</td>
+												<td>9.000.000</td>
+												<td>Gross monthly income</td>
+												<td>8.800.000</td>
+											</tr>
+											<tr>
+												<td>Taxable income</td>
+												<td></td>
+												<td>PIT</td>
+												<td></td>
+											</tr>
+											<tr>
+												<td>Emloyee HI(3%)</td>
+												<td>264.000</td>
+												<td>Emloyee HI(1.5%)</td>
+												<td>132.000</td>
+											</tr>
+											<tr>
+												<td>Emloyee SI(18%)</td>
+												<td>264.000</td>
+												<td>Emloyee SI(8%)</td>
+												<td>704.000</td>
+											</tr>
+											<tr>
+												<td>Emloyee UI(1%)</td>
+												<td>264.000</td>
+												<td>Emloyee UI(1%)</td>
+												<td>88.000</td>
+											</tr>
+										</tbody>
+									</table>
+				                </div>
+				               
+				            </div>
+			            
+			        </div>
+			        
+			        
+			    </div>
+                	
+                </div>
+              </div>
+            </div>
+            <!-- Add new modal -->
+            <div class="modal fade bs-example-modal-lg" id="modal-add" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-delete">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel">Add New: </h4>
+                        </div>
+                        <h:form>
+                        <div class="modal-body">
+                          	 <div class='col-sm-12'>
+				                   <label >Income :</label>
+				                   <div class="col-sm-7 float-right">
+				                   		<div class="form-group" >
+				                   			<h:selectOneMenu id="xxx" styleClass="form-control" value = "#{status}"> 
+									            
+										        <f:selectItem itemValue = "744" itemLabel = "A1/Bậc 1" /> 
+										        <f:selectItem itemValue = "745" itemLabel = "Inactive" /> 
+										        <f:selectItem itemValue = "746" itemLabel = "Close" /> 
+										            
+											</h:selectOneMenu> 
+				                   		</div>
+				                   		
+				                   </div>
+				                     
+				                </div>
+			                 <div class='col-sm-12'>
+				                    <label >Value :</label>
+				                    <div class="col-sm-7 float-right">
+				                        <div class="form-group" >
+				                            <h:inputText styleClass="form-control" value="#{name}" />
+				                            
+				                        </div>
+				                    </div>
+				                </div>
+			                 <div class='col-sm-12'>
+				                <div class="form-group">
+					                <label >Number of woring day/hours :</label>
+					                <div class="col-sm-7 float-right">
+				                        <div class="form-group" >
+				                            <h:inputText styleClass="form-control" value="#{name}" />
+				                            
+				                        </div>
+				                    </div>
+				                            
+				                </div>
+			                 </div>
+			                 <div class='col-sm-12'>
+				                    <label >Currency :</label>
+				                    <div class="col-sm-7 float-right">
+				                        <div class="form-group" >
+				                            <h:inputText styleClass="form-control" value="#{name}" />
+				                        </div>
+				                    </div>
+				                </div>
+				                <div class='col-sm-12'>
+				                   <label >Variable intermedia :</label>
+				                    <div class="col-sm-7 float-right">
+				                        <div class="form-group" >
+				                            <h:inputText styleClass="form-control" value="#{code}" />
+				                            
+				                        </div>
+				                    </div>
+				                </div>
+				                <div class='col-sm-12'>
+				                   <label >Start date:</label>
+				                    <div class="col-sm-7 float-right">
+				                        <div class="form-group" >
+				                            <h:inputText styleClass="form-control" value="#{code}" />
+				                            <span class="fa fa-calendar form-control-feedback right" aria-hidden="true"></span>
+				                        </div>
+				                    </div>
+				                </div>
+				                <div class='col-sm-12'>
+				                   <label > End date:</label>
+				                    <div class="col-sm-7 float-right">
+				                        <div class="form-group" >
+				                            <h:inputText styleClass="form-control" value="#{code}" />
+				                            <span class="fa fa-calendar form-control-feedback right" aria-hidden="true"></span>
+				                        </div>
+				                    </div>
+				                </div>
+                        </div>
+                        <div class="clearfix"></div>
+
+                        <div class="modal-footer">
+                        	<h:commandButton styleClass="btn btn-primary" action="#{projects_bean.insert(code,name,description,status)}" value="Save" />
+                          	<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                          
+                          
+                        </div>
+                    	</h:form>
+                      </div>
+                    </div>
+            </div>
+			<!--  Add new  modal -->
+
+			<!-- Edit modal -->
+            <div class="modal fade bs-example-modal-lg" id="modal-edit" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-delete">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel">Edit :</h4>
+                        </div>
+                        <h:form>
+                        <div class="modal-body">
+                          	 <div class='col-sm-12'>
+				                   <label >Income :</label>
+				                   <div class="col-sm-7 float-right">
+				                   		<div class="form-group" >
+				                   			<h:selectOneMenu id="xxx" styleClass="form-control" value = "#{status}"> 
+									            
+										        <f:selectItem itemValue = "744" itemLabel = "A1/Bậc 1" /> 
+										        <f:selectItem itemValue = "745" itemLabel = "Inactive" /> 
+										        <f:selectItem itemValue = "746" itemLabel = "Close" /> 
+										            
+											</h:selectOneMenu> 
+				                   		</div>
+				                   		
+				                   </div>
+				                     
+				                </div>
+			                 <div class='col-sm-12'>
+				                    <label >Value :</label>
+				                    <div class="col-sm-7 float-right">
+				                        <div class="form-group" >
+				                            <h:inputText styleClass="form-control" value="#{name}" />
+				                            
+				                        </div>
+				                    </div>
+				                </div>
+			                 <div class='col-sm-12'>
+				                <div class="form-group">
+					                <label >Number of woring day/hours :</label>
+					                <div class="col-sm-7 float-right">
+				                        <div class="form-group" >
+				                            <h:inputText styleClass="form-control" value="#{name}" />
+				                            
+				                        </div>
+				                    </div>
+				                            
+				                </div>
+			                 </div>
+			                 <div class='col-sm-12'>
+				                    <label >Currency :</label>
+				                    <div class="col-sm-7 float-right">
+				                        <div class="form-group" >
+				                            <h:inputText styleClass="form-control" value="#{name}" />
+				                        </div>
+				                    </div>
+				                </div>
+				                <div class='col-sm-12'>
+				                   <label >Variable intermedia :</label>
+				                    <div class="col-sm-7 float-right">
+				                        <div class="form-group" >
+				                            <h:inputText styleClass="form-control" value="#{code}" />
+				                            
+				                        </div>
+				                    </div>
+				                </div>
+				                <div class='col-sm-12'>
+				                   <label >Start date:</label>
+				                    <div class="col-sm-7 float-right">
+				                        <div class="form-group" >
+				                            <h:inputText styleClass="form-control" value="#{code}" />
+				                            <span class="fa fa-calendar form-control-feedback right" aria-hidden="true"></span>
+				                        </div>
+				                    </div>
+				                </div>
+				                <div class='col-sm-12'>
+				                   <label > End date:</label>
+				                    <div class="col-sm-7 float-right">
+				                        <div class="form-group" >
+				                            <h:inputText styleClass="form-control" value="#{code}" />
+				                            <span class="fa fa-calendar form-control-feedback right" aria-hidden="true"></span>
+				                        </div>
+				                    </div>
+				                </div>
+                        </div>
+                        <div class="clearfix"></div>
+
+                        <div class="modal-footer">
+                         	<h:commandButton styleClass="btn btn-primary" action="#{projects_bean.insert(code,name,description,status)}" value="Save" />
+                          	<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        </div>
+                    	</h:form>
+                      </div>
+                    </div>
+            </div>
+			<!--  Edit modal -->
+			<!-- Delete modal -->
+            <div class="modal fade bs-example-modal-lg" id="modal-delete" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-sm modal-delete">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel">Confirm:</h4>
+                        </div>
+                        
+                        <div class="modal-footer">
+                        	<h:form>
+                        		<h:inputHidden id="txtid" value="#{txtid}" />
+                          		<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                          
+                          		<h:commandButton styleClass="btn btn-primary" action="#{projects_bean.delete(txtid)}" value="Delete" />
+                          </h:form>
+                        </div>
+
+                      </div>
+                    </div>
+            </div>
+			<!--  Delete modal -->
+
+        	<script type="text/javascript">
+			    function project_pass_del(id) {
+			    	document.getElementById("j_idt108:txtid").value = id; 
+			    };
+			    function project_pass_update(id,code,name,description,status) {
+			    	document.getElementById("j_idt100:hd_id").value = id; 
+			    	document.getElementById("j_idt100:code").value = code; 
+			    	document.getElementById("j_idt100:name").value = name; 
+			    	document.getElementById("j_idt100:description").value = description; 
+			    	document.getElementById("j_idt100:status").value = status; 
+			    };
+			    
+			</script>
+            <!-- =================================================================================================-->	
+
+	
+    </h:body>
+
+</html>

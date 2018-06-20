@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      >
+
+	<h:head>
+	
+		
+		
+		<h:outputStylesheet name="common-style.css" library="css" />
+		
+		<ui:insert name="header" >
+			<ui:include src="/template/common/commonHeader.xhtml" />
+		</ui:insert>
+		
+	</h:head>
+    
+    <h:body styleClass="login">
+    	<div>
+      
+      <div class="login_wrapper">
+        <div class="animate form login_form" >
+          <div>
+          		<h:graphicImage name="production/images/logo2.png" style="margin-left: 6px;" />
+          </div>
+          <section class="login_content" style="background-color: #9adbf1;">
+            <h:form id="loginform">
+              <h1>Login eHRM</h1>
+              <div class="col-sm-12 form-group has-feedback">
+                     <div class="col-sm-3">
+                     	Username: 
+                     </div>
+                     <div class="col-sm-9">
+	                     <h:inputText value="#{login_bean.username}" id="uname" styleClass="form-control align-center">
+	                     		<f:validator validatorId="username_validator"/>
+								<f:ajax event="blur" render="uname_err_msg"></f:ajax>
+	                     </h:inputText>
+	                     <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+	                     <h:message id="uname_err_msg" for="uname" style="color:red"></h:message> 
+                     </div>
+              </div>
+              
+              <div class="col-sm-12 form-group has-feedback">
+              		<div class="col-sm-3">
+                     	Password: 
+                     </div>
+                     <div class="col-sm-9">
+	                     <h:inputSecret styleClass="form-control align-center" id= "pass" value="#{login_bean.pass}">
+	                     		<f:validator validatorId="pass_validator"/>
+								<f:ajax event="blur" render="pass_err_msg"></f:ajax>
+	                     </h:inputSecret>
+	                     <span class="fa fa-lock form-control-feedback right" aria-hidden="true"></span>
+	                     <h:message id="pass_err_msg" for="pass" style="color:red"></h:message> 
+	                 </div>
+              </div>
+              <h:message id="err_msg" for="err_notify" style="color:red"></h:message> 
+              <div>
+                
+                <h:commandButton action="#{login_bean.Login()}" styleClass="btn btn-default" value="Login" />
+                <a class="reset_pass" href="#">Username : admin , pass : 034HdbNb6A4=<h:outputText value="#{login_bean.vv()}" /> </a>
+              </div>
+
+              <div class="clearfix"></div>
+
+    
+            </h:form>
+          </section>
+        </div>
+
+        <div id="register" class="animate form registration_form">
+          <section class="login_content">
+            <form>
+              <h1>Create Account</h1>
+              <div>
+                <input type="text" class="form-control" placeholder="Username" required="" />
+              </div>
+              <div>
+                <input type="email" class="form-control" placeholder="Email" required="" />
+              </div>
+              <div>
+                <input type="password" class="form-control" placeholder="Password" required="" />
+              </div>
+              <div>
+                <a class="btn btn-default submit" href="index.html">Submit</a>
+              </div>
+
+              <div class="clearfix"></div>
+
+              <div class="separator">
+                <p class="change_link">Already a member ?
+                  <a href="#signin" class="to_register"> Log in </a>
+                </p>
+
+                <div class="clearfix"></div>
+                <br />
+
+
+              </div>
+            </form>
+          </section>
+        </div>
+      </div>
+    </div>
+	    <h:outputScript name="vendors/jquery/dist/jquery.min.js"/>
+			
+		    <!-- Bootstrap -->
+		    <h:outputScript name="vendors/bootstrap/dist/js/bootstrap.min.js"/>
+		    
+		    
+		    
+		    
+		    <!-- FastClick -->
+		    <h:outputScript name="vendors/fastclick/lib/fastclick.js"/>
+		    
+		    <!-- NProgress -->
+		    <h:outputScript name="vendors/nprogress/nprogress.js"/>
+		    
+		    <!-- Search table -->
+		    <h:outputScript name="js/config.js"/>
+		   
+		    <!-- gauge.js -->
+		    <h:outputScript name="vendors/gauge.js/dist/gauge.min.js"/>
+		    
+		    <!-- bootstrap-progressbar -->
+		    <h:outputScript name="vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"/>
+    </h:body>
+
+</html>

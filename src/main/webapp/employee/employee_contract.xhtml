@@ -1,0 +1,430 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+
+<body> 
+    		<!-- xoa phan phan khung duoi di, thay vao noi dung tuong ung. -->
+    		<!-- =================================================================================================-->
+    			
+    		<div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_content">
+                  	<!-- search-->
+			        <div class="container">
+			            	<div class="row">
+
+                <!-- show table-->
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>List Employees Contracts</h2>
+                    
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                  	<!-- search-->
+			        <div class="container">
+			            
+			            	<div class="row">
+				                
+				                <div class="clearfix"></div>
+				                <div class="col-sm-12">
+				                
+				                	<h:dataTable id= "datatable" styleClass="table table-striped table-bordered dataTable no-footer" value="#{employeeContractBean.list}" var="ec" >
+									  <h:column>
+									  	<f:facet name="header" style="width: 64px;"><span style="padding-left: 10px;" class="glyphicon glyphicon-file" aria-hidden="true" ></span></f:facet>
+									  	<button class="btn btn-link btn_icon" data-toggle="modal" data-target="#modal-edit_contract" onclick="contract_update('#{ec.contractId}',#{ec.units.unitId},'#{ec.masterDatasByContractTypeId.masterDataId}','#{ec.masterDatasByWorkingTypeId.masterDataId}','#{ec.workingTypeFixedValue}','#{ec.startDate}','#{ec.endDate}','#{ec.contractNumber}','#{ec.signDate}')">
+											    		<i class="fa fa-edit"></i>
+											    	</button>
+											    	<button class="btn btn-link btn_icon" onclick="contract_pass_del(#{ec.contractId})"  data-toggle="modal" data-target="#modal-delete_contract">
+											    		<i class="fa fa-trash"></i>
+											    	</button>
+									  </h:column>
+									  <h:column>
+									  	<f:facet name="header">Contract type</f:facet>
+									  	<h:outputText value="#{ec.masterDatasByContractTypeId.masterDataDescription}" />
+									  </h:column>
+									  <h:column>
+									  	<f:facet name="header">Contract number</f:facet>
+									  	<h:outputText value="#{ec.contractNumber}" />
+									  </h:column>
+									  <h:column>
+									  	<f:facet name="header">Working time</f:facet>
+									  	<h:outputText value="#{ec.masterDatasByWorkingTypeId.masterDataDescription}" />
+									  </h:column>
+									  									  						
+									  <h:column>
+									  	<f:facet name="header">Start date</f:facet>
+									  	<h:outputText value="#{ec.startDate}" />
+									  </h:column>
+									  <h:column>
+									  	<f:facet name="header" style="margin: auto;" >End date</f:facet>
+									  	<h:outputText value="#{ec.endDate}" />
+									  </h:column>
+									  <h:column>
+									  	<f:facet name="header">Sign date</f:facet>
+									  	<h:outputText value="#{ec.signDate}" />
+									  </h:column>																	  
+									</h:dataTable>
+				                </div>
+				                <div class="clearfix"></div>
+				                
+				                <div class="col-sm-12 " >
+				                	<div class ="table_footer">
+							            <div class='col-sm-5' >
+								                <button class="btn btn-default"> 
+								                	<i class="fa fa-fast-backward"></i>
+								                </button>
+								                <button class="btn btn-default"> 
+								                	<i class="fa fa-step-backward"></i>
+								                </button>
+												
+												<h:inputText styleClass="text-box-search" id="txtSearch7" value="1" />
+												<button class="btn btn-default"> 
+								                	<i class="fa fa-step-forward"></i>
+								                </button>
+								                <button class="btn btn-default"> 
+								                	<i class="fa fa-fast-forward"></i>
+								                </button>
+												
+												
+								        </div>
+								        
+								        <div class='col-sm-4 float-right' >
+								                    
+								            <div class="form-group float-right" >
+								                        <label>Page 1 of 1 (2 items) </label>
+								            </div>
+								        </div> 
+								        <div class="clearfix"></div>
+								        <div class="ln_solid"></div>
+							        </div>
+						        </div>
+
+						        
+						        <div class="col-sm-12 " >
+									<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-add-contract">Add New</button>
+
+								</div>
+				            </div>
+			            
+			        </div>
+			        </div>
+			        </div>
+			    </div>
+				</div>
+                </div>
+            </div>
+            </div>
+            </div>
+
+
+            <!-- Add new modal -->
+            <div class="modal fade bs-example-modal-lg" id="modal-add-contract" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-delete">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel">Add New Unit: </h4>
+                        </div>
+                        <h:form>
+                        <div class="modal-body form-horizontal">
+                          	 <div class='col-sm-12'>
+       					 <div class="form-group">
+
+                          	 <div class="col-sm-4">
+                          	 	Company:
+                          	 </div>
+               					 <div class="col-sm-8">
+					                <h:selectOneMenu id="e" styleClass="form-control" value = "#{employeeContractBean.company}"> 
+									            <f:selectItems value="#{unitBean.list}" itemValue = "#{unit.unitId}" var="unit" itemLabel = "#{unit.unitName}" /> 									            
+									</h:selectOneMenu>  
+				                    </div>   
+				                </div>
+               			  		 <div class="form-group">
+				                <div class="col-sm-4">
+				                	Contract type:
+				                </div>
+               					 <div class="col-sm-8">
+				                <h:selectOneMenu styleClass="form-control" value = "#{employeeContractBean.contracTypeId}"> 
+									            <f:selectItems value="#{masterDataBean.getList(1)}" var="master" itemValue = "#{master.masterDataId}" itemLabel = "#{master.masterDataDescription}" /> 									            
+									</h:selectOneMenu>  
+									</div>
+				                </div>
+               					 <div class="form-group">
+				               <div class="col-sm-4">
+				               		Working time:
+				               </div>
+               					 <div class="col-sm-8">
+					                <h:selectOneMenu id="ex" styleClass="form-control" value = "#{employeeContractBean.workingTypeId}"> 
+									            <f:selectItems var="master1" value="#{masterDataBean.getList(40)}" itemValue = "#{master1.masterDataId}" itemLabel = "#{master1.masterDataDescription}" /> 				            
+									</h:selectOneMenu> 
+									</div> 
+				                </div>
+				                <div class="form-group">
+				                <div class="col-sm-4">
+				                	Fixed value:
+				                </div>
+				                <div class="col-sm-8">
+				                	<h:inputText styleClass="form-control" value="#{employeeContractBean.fixedValue}"/>
+				                	</div>
+				                </div>
+				                    <div class="form-group">
+			                 <div class="col-sm-4">Start date:</div>
+				           
+				                        <div class="col-sm-8 xdisplay_inputx has-feedback" >
+				                            <h:inputText styleClass="form-control" value="#{employeeContractBean.startDate}" aria-describedby="inputSuccess2Status" id="startdate" required="true" requiredMessage="Ngày bắt đầu không được để trống !">
+				                            	<f:convertDateTime pattern="dd-mm-yyyy"/>
+				                            	<f:ajax event="blur" render="messtartdate"></f:ajax>
+				                            </h:inputText>
+				                             <span class="fa fa-calendar-o form-control-feedback right" aria-hidden="true"></span>				                            
+				                        </div>
+				                        <h:message for="startdate" id="messtartdate" style="color:red;"/>
+				                </div>
+				                    <div class="form-group">
+				            	<div class="col-sm-4">
+				                    End date :
+				                </div>
+				                    <div class="col-sm-1">
+				                    	<h:selectBooleanCheckbox />
+				                    </div>
+				                        <div class="col-sm-7 xdisplay_inputx has-feedback" >
+				                            <h:inputText styleClass="form-control" value="#{employeeContractBean.endDate}" aria-describedby="inputSuccess2Status" id="single_cal2"  >
+				                            <f:convertDateTime pattern="dd-mm-yyyy"/>				   
+				                            </h:inputText>
+				                             <span class="fa fa-calendar-o form-control-feedback right" aria-hidden="true"></span>				                            				                            
+				                        </div>
+				                </div>
+				                <div class="form-group">
+				                <div class="col-sm-6">Contractual seiority time</div>
+				                <div class="col-sm-6">
+				                	<h:outputLabel value="-" />
+				                </div>
+				                </div>
+				                <div class="form-group">
+			                <div class="col-sm-4">
+				                	Contract number:
+				                </div>
+				                <div class="col-sm-8">
+				                	<h:inputText value="#{employeeContractBean.contactNumber}" id="contractnumber" styleClass="form-control" required="true" requiredMessage="Contract Number không để trống !!!">
+				                		<f:ajax event="blur" render="contractnumbermes"></f:ajax>
+				                	</h:inputText>
+								</div>	
+									<h:message for="contractnumber" id="contractnumbermes" style="color:red;"/>			                
+								</div>
+				                <div class="form-group">
+				                <div class="col-sm-4">Siging date:</div>
+				                <div class="col-sm-8 xdisplay_inputx has-feedback">
+				                	<h:inputText value="#{employeeContractBean.sigingDate}" styleClass="form-control" id="sigingdate">
+				                    <f:convertDateTime pattern="dd-mm-yyyy"/>
+				                    <f:ajax event="blur" render="sigingdatemes"></f:ajax>
+				                    </h:inputText>
+				                     <span class="fa fa-calendar-o form-control-feedback right" aria-hidden="true"></span>				                            				                	
+								</div>
+								<h:message for="sigingdate" id="sigingdatemes" style="color:red;"/>
+				                </div>
+				                <div class="form-group">
+				                <div class="col-sm-4">
+				                	Seniority:
+				                </div>
+				                	<div class="col-sm-8">
+				                		<h:outputText value="- - - - -" />
+				                	</div>				         	
+				                </div>
+                        </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="modal-footer">
+                          <h:commandButton action="#{employeeContractBean.addContract()}" value="Save" styleClass="btn btn-primary" />
+                           <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>    
+       
+                        </div>
+                    	</h:form>
+                      </div>
+                    </div>
+            </div>
+
+			<!-- Edit modal -->
+            <div class="modal fade bs-example-modal-lg" id="modal-edit_contract" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-delete">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel">Employee contract information:</h4>
+                        </div>
+                        <h:form>
+                        <div class="modal-body form-horizontal">
+                       <div class="col-sm-12">
+                        <div class="form-group">
+                        	 <div class="contid">
+								<h:inputHidden value="#{employeeContractBean.editContractId}" styleClass="form-control" />
+							</div> 
+                        </div>
+                        </div>  
+                           	 <div class='col-sm-12'>                        	 
+       					 <div class="form-group">
+                          	 <div class="col-sm-4">
+                          	 	Company:
+                          	 </div>
+               					 <div class="col-sm-8 company">
+					                 <h:selectOneMenu styleClass="form-control" value = "#{employeeContractBean.company}"> 
+									            <f:selectItems value="#{unitBean.list}" itemValue = "#{unit.unitId}" var="unit" itemLabel = "#{unit.unitName}" /> 									            
+									</h:selectOneMenu>   
+							
+				                    </div>   
+				                </div>
+               			  		 <div class="form-group">
+				                <div class="col-sm-4">
+				                	Contract type:
+				                </div>
+               					 <div class="col-sm-8 contract_type">
+				                <h:selectOneMenu styleClass="form-control" value = "#{employeeContractBean.contracTypeId}" id="contract_type"> 
+									            <f:selectItems value="#{masterDataBean.getList(1)}" var="master" itemValue = "#{master.masterDataId}" itemLabel = "#{master.masterDataName}" /> 									            
+									</h:selectOneMenu>  
+				
+									</div>
+				                </div>
+               					 <div class="form-group">
+				               <div class="col-sm-4">
+				               		Working time:
+				               </div>
+               					 <div class="col-sm-8 working_time">
+					                 <h:selectOneMenu styleClass="form-control" value = "#{employeeContractBean.workingTypeId}" id="working_time"> 
+									            <f:selectItems var="master1" value="#{masterDataBean.getList(40)}" itemValue = "#{master1.masterDataId}" itemLabel = "#{master1.masterDataName}" /> 				            
+									</h:selectOneMenu> 
+				
+									</div> 
+				                </div>
+				                <div class="form-group">
+				                <div class="col-sm-4">
+				                	Fixed value:
+				                </div>
+				                <div class="col-sm-8 fixedvalue">
+				                	<h:inputText styleClass="form-control" value="#{employeeContractBean.fixedValue}"/>
+				                	</div>
+				                </div>
+				                    <div class="form-group">
+			                 <div class="col-sm-4">Start date:</div>        
+				                        <div class="col-sm-8 xdisplay_inputx has-feedback start_date" >
+				                             <h:inputText styleClass="form-control" value="#{employeeContractBean.startDate}" aria-describedby="inputSuccess2Status">
+				                            	<f:convertDateTime pattern="yyyy-mm-dd"/>
+				                            </h:inputText>     
+				                  <!--         <p:calendar styleClass="form-control" value="#{employeeContractBean.contract.startDate}" pattern="dd-mm-yyyy">
+				                          	<f:convertDateTime pattern="yyyy-mm-dd"/>
+				                          </p:calendar> 
+				                               <p:calendar id="button" showOn="button" />  -->
+				                             <span class="fa fa-calendar-o form-control-feedback right" aria-hidden="true"></span>				                            
+				                        </div>
+				                </div>
+				                    <div class="form-group">
+				            	<div class="col-sm-4">
+				                    End date :
+				                </div>
+				                    <div class="col-sm-1">
+				                    	<h:selectBooleanCheckbox />
+				                    </div>
+				                        <div class="col-sm-7 xdisplay_inputx has-feedback end_date" >
+				                            <h:inputText styleClass="form-control" value="#{employeeContractBean.endDate}" aria-describedby="inputSuccess2Status" >
+				                              <f:convertDateTime pattern="yyyy-mm-dd"/>			   
+				                            </h:inputText>
+				                             <span class="fa fa-calendar-o form-control-feedback right" aria-hidden="true"></span>				                            				                            
+				                        </div>
+				                </div>
+				                <div class="form-group">
+				                <div class="col-sm-6">Contractual seiority time</div>
+				                <div class="col-sm-6">
+				                	<h:outputLabel value="-" />
+				                </div>
+				                </div>
+				                <div class="form-group">
+			                <div class="col-sm-4">
+				                	Contract number:
+				                </div>
+				                <div class="col-sm-8 contract_number">
+				                	<h:inputText value="#{employeeContractBean.contactNumber}" styleClass="form-control"/>
+								</div>				                
+								</div>
+				                <div class="form-group">
+				                <div class="col-sm-4">Siging date:</div>
+				                <div class="col-sm-8 xdisplay_inputx has-feedback siging_date">
+				                	<h:inputText value="#{employeeContractBean.sigingDate}" styleClass="form-control" id="siging_date"  >
+				                    <f:convertDateTime pattern="yyyy-mm-dd"/>
+				                    </h:inputText>
+				                     <span class="fa fa-calendar-o form-control-feedback right" aria-hidden="true"></span>				                            				                	
+								</div>
+				                </div>
+				                <div class="form-group">
+				                <div class="col-sm-4">
+				                	Seniority:
+				                </div>
+				                	<div class="col-sm-8">
+				                		<h:outputText value="- - - - -" />
+				                	</div>				         	
+				                </div>
+                        </div>
+                        </div>
+                        <div class="clearfix"></div>
+
+                        <div class="modal-footer">
+                           <h:commandButton action="#{employeeContractBean.updateContract()}" value="Save" styleClass="btn btn-primary"/>
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        </div>
+                    	</h:form>
+                      </div>
+                    </div>
+            </div>
+			<!-- Delete modal -->
+            <div class="modal fade bs-example-modal-lg" id="modal-delete_contract" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-sm modal-delete">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel">Confirm:</h4>
+                        </div>
+                        
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                         <h:form>
+                          <div class="delete-contract">             
+                          <h:inputHidden id="txtdelete" value="#{txtdelete}" />
+                          </div>
+                          <h:commandButton action="#{employeeContractBean.deleteContract(txtdelete)}" styleClass="btn btn-primary" value="Delete"></h:commandButton>
+                          </h:form>
+                        </div>
+
+                      </div>
+                    </div>
+            </div>
+			<!--  Delete modal -->
+
+ 		     <script type="text/javascript">
+			    function contract_pass_del(id) {
+			    	document.querySelector(".delete-contract input").value = id; 
+			    };
+    		   function contract_update(contractid,id,code,name,fixedval,sdate,status,contract_num,siging) {
+			    	document.querySelector(".contid input").value = contractid; 
+ 			    	document.querySelector(".company select").value = id; 
+			        document.querySelector(".contract_type select").value = code; 
+			    	document.querySelector(".working_time select").value = name; 
+			    	document.querySelector(".fixedvalue input").value = fixedval;		    
+			   		document.querySelector(".start_date input").value = sdate; 
+			    	document.querySelector(".end_date input").value = status; 
+			    	document.querySelector(".contract_number input").value = contract_num; 
+			    	document.querySelector(".siging_date input").value = siging; 
+		   	
+			    };     
+			</script>
+        	
+            <!-- =================================================================================================-->	
+</body> 
+</html>

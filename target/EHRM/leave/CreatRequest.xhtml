@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      
+      >
+    <h:body>
+    	
+    	<ui:composition template="/template/common/commonLayout.xhtml">
+    		<!-- Thay ten trang tuong ung -->
+    		<ui:define name="title">
+    			Create Request
+    		</ui:define>
+    	
+    		<ui:define name="content">
+    		<!-- xoa phan phan khung duoi di, thay vao noi dung tuong ung. -->
+    		<!-- =================================================================================================-->
+    			
+    		<div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+              	<h2><strong>Create Request</strong></h2>
+              	<hr/>
+                <div class="x_panel">
+                  <div class="x_content">
+                  	<!-- search-->
+			        <div class="container">
+			            <form>
+			            	<div class="row " style="margin-top: 10px;">
+								
+				                <div class='col-sm-12'>
+				                    <div class="col-sm-3 right">
+				                    	Employee:
+				                    </div>
+				                    <div class='col-sm-6'>
+				                    	<div class="col-sm-8 form-group">
+					                        <div class="form-group" id='myDatepicker1'>
+												<h:selectOneMenu styleClass="form-control" value = "#{dataemployee}"> 
+										            <f:selectItem itemValue = "1" itemLabel = "-[Select]-" /> 
+										            <f:selectItem itemValue = "2" itemLabel = "Active" /> 
+										            <f:selectItem itemValue = "3" itemLabel = "Inactive" /> 
+										            <f:selectItem itemValue = "4" itemLabel = "Close" /> 
+										        </h:selectOneMenu>  
+					                        </div>
+					                    </div>
+				                    </div>
+				                    
+				                </div>
+
+				                <div class='col-sm-12'>
+				                    <div class="col-sm-3 right">
+				                    	Created by:
+				                    </div>
+				                    <div class='col-sm-6'>
+				                    	<div class="col-sm-8 form-group">
+				                    		<div class="form-group" id='employee'>
+					                        	<h:outputText value = "Trang pt" />
+					                        </div>
+					                    </div>
+				                    </div>
+				                </div>
+				                <div class='col-sm-12'>
+				                    <div class="col-sm-3 right">
+				                    	Leave Type:
+				                    </div>
+				                    <div class='col-sm-6'>
+				                    	<div class="col-sm-8 form-group">
+					                        <div class="form-group" id='myDatepicker2'>
+												<h:selectOneMenu styleClass="form-control" value = "#{dataleavetype}"> 
+										            <f:selectItem itemValue = "1" itemLabel = "-[Select]-" /> 
+										            <f:selectItem itemValue = "2" itemLabel = "Annual Leave" /> 
+										            <f:selectItem itemValue = "3" itemLabel = "Unpaid Leave" /> 
+										            <f:selectItem itemValue = "4" itemLabel = "Maternity Leave" /> 
+										        	<f:selectItem itemValue = "5" itemLabel = "Marriage Leave" /> 
+										        	<f:selectItem itemValue = "6" itemLabel = "Bereavement Leave" /> 
+										        	<f:selectItem itemValue = "7" itemLabel = "Paternity Leave" /> 
+										        </h:selectOneMenu>  
+					                        </div>
+					                    </div>
+				                    </div>
+				                </div>
+				                <div class='col-sm-12'>
+				                    <div class="col-sm-3 right">
+				                    	Start Date:
+				                    </div>
+				                    <div class='col-sm-6'>
+				                    	<div class="col-sm-6 form-group">
+					                        <div class="form-group">
+									              <input type="text" class="form-control " aria-describedby="inputSuccess2Status" id="startdate" />
+					                                <span class="fa fa-calendar-o form-control-feedback right" aria-hidden="true"></span>
+					                        
+					                            
+						                    </div>
+					                    </div>
+					                    <div class="col-sm-2 left">
+			                           		<h:selectOneMenu styleClass="form-control" value = "#{datahourst}"> 
+									            <f:selectItem itemValue = "1" itemLabel = "AM" /> 
+									            <f:selectItem itemValue = "2" itemLabel = "PM" /> 
+									        </h:selectOneMenu>
+		                           		</div>
+				                    </div>
+				                </div>
+								<div class='col-sm-12'>
+				                    <div class="col-sm-3 right">
+				                    	End Date:
+				                    </div>
+				                    <div class='col-sm-6'>
+				                    	<div class="col-sm-6 form-group">
+					                        <div class="form-group">
+									              <input type="text" class="form-control " aria-describedby="inputSuccess2Status" id="enddate" />
+					                                <span class="fa fa-calendar-o form-control-feedback right" aria-hidden="true"></span>
+					                        
+					                            
+						                    </div>
+					                    </div>
+					                    <div class="col-sm-2 left">
+			                           		<h:selectOneMenu styleClass="form-control" value = "#{datahoured}"> 
+									            <f:selectItem itemValue = "1" itemLabel = "AM" /> 
+									            <f:selectItem itemValue = "2" itemLabel = "PM" /> 
+									        </h:selectOneMenu>
+		                           		</div>
+				                    </div>
+				                </div>
+				                <div class='col-sm-12'>
+				                    <div class="col-sm-3 right">
+				                    	Working leave days:
+				                    </div>
+				                    <div class='col-sm-6'>
+				                    	<div class="col-sm-8 form-group">
+				                    		<div class="form-group" id='totaldays'>
+					                        	<h:outputText value = "1" />
+					                        </div>
+					                    </div>
+				                    </div>
+				                </div>
+				                <div class='col-sm-12'>
+				                    <div class="col-sm-3 right">
+				                    	Unused days:
+				                    </div>
+				                    <div class='col-sm-6'>
+				                    	<div class="col-sm-8 form-group">
+				                    		<div class="form-group" id='unused'>
+					                        	<h:outputText value = "10" />
+					                        </div>
+					                    </div>
+				                    </div>
+				                </div>
+				                <div class='col-sm-12'>
+				                    <div class="col-sm-3 right">
+				                    	Reason:
+				                    </div>
+				                    <div class='col-sm-6'>
+				                    	<div class="col-sm-12 form-group">
+				                    		<div class="form-group" >
+					                        	<h:inputTextarea row="10" styleClass="arealeave" value = "" />
+					                        </div>
+					                    </div>
+				                    </div>
+				                </div>
+				               <div class='col-sm-12'>
+				                    <div class="col-sm-3 right">
+				                    	Status:
+				                    </div>
+				                    <div class='col-sm-6'>
+				                    	<div class="col-sm-8 form-group">
+					                        <div class="form-group" id='myDatepicker2'>
+												<h:selectOneMenu styleClass="form-control" value = "#{dataleavetype}"> 
+										            <f:selectItem itemValue = "1" itemLabel = "Requested" /> 
+										            <f:selectItem itemValue = "2" itemLabel = "Annual Leave" /> 
+										            <f:selectItem itemValue = "3" itemLabel = "Unpaid Leave" /> 
+										            <f:selectItem itemValue = "4" itemLabel = "Maternity Leave" /> 
+										        	<f:selectItem itemValue = "5" itemLabel = "Marriage Leave" /> 
+										        	<f:selectItem itemValue = "6" itemLabel = "Bereavement Leave" /> 
+										        	<f:selectItem itemValue = "7" itemLabel = "Paternity Leave" /> 
+										        </h:selectOneMenu>  
+					                        </div>
+					                    </div>
+				                    </div>
+				                </div>
+				                <div class='col-sm-12'>
+				                    <div class="col-sm-3 right">
+				                    	Request date:
+				                    </div>
+				                    <div class='col-sm-6'>
+				                    	<div class="col-sm-8 form-group">
+				                    		<div class="form-group" id='unused'>
+					                        	<h:outputText value = "25/05/2018" />
+					                        </div>
+					                    </div>
+				                    </div>
+				                </div>
+				            </div>
+				            <div class="clearfix"></div>
+				            <div class="x_content top">
+				                <div class="container">
+				                  	<div class="row col-sm-8">
+				                  		<button type="submit" class="btn btn-primary">Submit</button>
+						            </div>
+				                </div>
+				            </div>
+			            </form>
+			        </div>
+			        
+			        
+			    </div>
+                </div>
+                <!-- show table-->
+
+              </div>
+            </div>
+<script type="text/javascript">
+	
+</script>
+        	
+            <!-- =================================================================================================-->	
+    		</ui:define>
+		</ui:composition>
+    </h:body>
+
+</html>

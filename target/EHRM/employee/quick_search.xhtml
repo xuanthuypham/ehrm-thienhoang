@@ -1,0 +1,229 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:p="http://primefaces.org/ui"> 
+
+<body> 
+    	<ui:composition template="/template/common/commonLayout.xhtml">
+    		<!-- Thay ten trang tuong ung -->
+    		<ui:define name="title">
+    			Danh sách nhân viên
+    		</ui:define>
+    	
+    		<ui:define name="content">
+    		<!-- xoa phan phan khung duoi di, thay vao noi dung tuong ung. -->
+    		<!-- =================================================================================================-->
+    			
+    		<div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+              	<h2><strong>Quick Search</strong></h2>
+              	<hr/>
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Search</h2>
+                    
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                  	<!-- search-->
+			        <div class="container">
+			        
+			            	<div class="row">
+								<h:form>
+				                <div class='col-sm-6'>
+				                <div class="form-group">
+				               
+				                <label for="keyword" class="col-sm-4">
+				                    Key word:
+				                </label>
+				                    <div class="col-sm-8">
+				                            <h:inputText id="keyword1" styleClass="form-control" value="#{employeeBean.keyword}" />				                            
+				                    </div>
+				                </div>
+				                </div>
+
+
+				                <div class="clearfix"></div>
+				                <br/>
+				                <div class='col-sm-4'>
+				                    <h:commandButton action="#{employeeBean.search()}" value="Search" styleClass="btn btn-primary" >
+				                    	<f:ajax execute="keyword1" render=":datatable" />
+				                    </h:commandButton>
+				                </div>
+				                </h:form>
+				                <div class="clearfix"></div>
+				                <br/>
+				                <div class="col-sn-4">
+				                	<a style="margin-left: 10px; font-size: 13px;" href="${pageContext.request.contextPath}/employee/advanced_search.xhtml">Advanced Search</a>
+				                </div> 
+				            </div>
+			        </div>
+			        
+			        
+			    </div>
+                </div>
+                <!-- show table-->
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>List employees</h2>
+                    
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                  	<!-- search-->
+			        <div class="container">
+			            
+			       	<div class="row">
+		<!--  		                <div style="padding-top: 6px;">
+				                	<div class='col-sm-4' style="padding-top: 5px;">
+					                    <label class="control-label">Drag a column to this area to group:</label>
+					                </div>
+					                
+					            <div class="col-sm-4 float-right" >
+					                    
+					                    <div class='col-sm-4' >
+					                    	<label class="control-label float-right" >Search:</label>
+					                    </div>
+					                    <div class='col-sm-8'>
+					                    	 <div class="form-group" >
+						                        <h:inputText styleClass="form-control" id="txtSearch" onkeyup="searchTable()" />
+						                    </div>
+					                    </div>
+					                   
+					                </div>  
+					               
+				                </div>  -->
+				                <div class="clearfix"></div>
+				                <div class="col-sm-12">
+				                	<h:dataTable id= "datatable" styleClass="table table-striped table-bordered dataTable no-footer" var="emp" value="#{employeeBean.list}" >
+									  <h:column>
+									  	<f:facet name="header" style="width: 64px;"><span style="padding-left: 10px;" class="glyphicon glyphicon-file" aria-hidden="true"></span></f:facet>
+									<!--    	<h:commandButton action="#{employeeBean.navigateEmployeeDetail(emp)}" styleClass="btn btn-link btn_icon" value="abc">
+											    		<i class="fa fa-edit"></i>
+											    	</h:commandButton> -->
+											    	<h:form>
+											 		<h:commandLink action="#{employeeBean.navigateEmployeeDetail(emp)}" value="" styleClass="btn btn-link btn_icon">
+											    		<i class="fa fa-edit"></i>											 		
+											 		</h:commandLink>
+											    	<h:commandLink action="#{employeeBean.deleteEmployee(emp.employeeId)}" onclick="confirm('Bạn có muốn xóa!')" value="" styleClass="btn btn-link btn_icon">
+											    		<i class="fa fa-trash"></i>
+											    	</h:commandLink>
+											    	</h:form>
+									  </h:column>
+									  <h:column>
+									  	<f:facet name="header">8-ID)</f:facet>
+									  	<h:outputText value="#{emp.identifyCompany}" />
+									  </h:column>
+										<h:column>
+											<f:facet name="header">First name</f:facet>
+											<h:outputText value="#{emp.firstName}" />
+										</h:column>
+									  <h:column>
+									  	<f:facet name="header">Last name</f:facet>
+									  	<h:outputText value="#{emp.lastName}" />
+									  </h:column>
+									  <h:column>
+									  	<f:facet name="header">Start date</f:facet>
+									  	<h:outputText value="#{emp.workingStartDate}" />
+									  </h:column>
+									  <h:column>
+									  	<f:facet name="header">End of probation</f:facet>
+									  	<h:outputText value="#{emp.probationEndDate}" />
+									  </h:column>
+									  <h:column>
+									  	<f:facet name="header">Stop working date</f:facet>
+									  </h:column>
+									  <h:column>
+									  	<f:facet name="header" style="margin: auto;">Selected</f:facet>
+									  	<h:selectBooleanCheckbox value="#{emp.active}" disabled="true"/>
+									  </h:column>
+									</h:dataTable>
+				                </div>
+				                <div class="clearfix"></div>
+				                
+				   <!--             <div class="col-sm-12 " >
+				                	<div class ="table_footer">
+							            <div class='col-sm-5' >
+								                <button class="btn btn-default"> 
+								                	<i class="fa fa-fast-backward"></i>
+								                </button>
+								                <button class="btn btn-default"> 
+								                	<i class="fa fa-step-backward"></i>
+								                </button>
+												
+												<h:inputText styleClass="text-box-search" id="txtSearch" value="1" />
+												<button class="btn btn-default"> 
+								                	<i class="fa fa-step-forward"></i>
+								                </button>
+								                <button class="btn btn-default"> 
+								                	<i class="fa fa-fast-forward"></i>
+								                </button>
+												
+												
+								        </div>
+								        
+								        <div class='col-sm-4 float-right' >
+								                    
+								            <div class="form-group float-right" >
+								                        <label>Page 1 of 1 (2 items) </label>
+								            </div>
+								        </div> 
+								        <div class="clearfix"></div>
+								        <div class="ln_solid"></div>
+							        </div>
+						        </div>
+						        -->
+
+						        <div class="clearfix"></div>
+								<div class="ln_solid"></div>					        
+						        <div class="col-sm-12 " >
+									<button type="button" onclick="location.href='employee_add.xhtml'" class="btn btn-primary" data-toggle="modal" data-target="#modal-add">Add New</button>
+
+									<button class="btn btn-primary" > Generate report </button>
+								</div>
+				            </div>
+			            
+			        </div>
+			        
+			        
+			    </div>
+                </div>
+                <div class="x_panel">
+                	
+                	
+                </div>
+              </div>
+        </div>
+
+
+
+			<!-- Delete modal -->
+            <div class="modal fade bs-example-modal-lg" id="modal-delete" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-sm modal-delete">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel">Confirm:</h4>
+                        </div>
+                        
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                          
+                          <button type="button" class="btn btn-primary">Delete</button>
+                        </div>
+
+                      </div>
+                    </div>
+            </div>
+			<!--  Delete modal -->
+
+        	
+            <!-- =================================================================================================-->	
+    		</ui:define>
+		</ui:composition>
+</body> 
+</html>

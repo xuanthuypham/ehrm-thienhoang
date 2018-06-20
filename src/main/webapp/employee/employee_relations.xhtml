@@ -1,0 +1,385 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<body> 
+   		<div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_content">
+                  	<!-- search-->
+			        <div class="container">
+			            	<div class="row">
+
+                <!-- show table-->
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>List employee family relationship</h2>
+                    
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                  	<!-- search-->
+			        <div class="container">
+			            
+			            	<div class="row">
+				                
+				                <div class="clearfix"></div>
+				                <div class="col-sm-12">
+				                
+				                	<h:dataTable id= "datatable5" styleClass="table table-striped table-bordered dataTable no-footer" >
+									  <h:column>
+									  	<f:facet name="header" style="width: 64px;"><span style="padding-left: 10px;" class="glyphicon glyphicon-file" aria-hidden="true"></span></f:facet>
+									  	<button class="btn btn-link btn_icon">
+											    		<i class="fa fa-edit"></i>
+											    	</button>>
+											    	<button class="btn btn-link btn_icon">
+											    		<i class="fa fa-trash"></i>
+											    	</button>
+									  </h:column>
+									  <h:column>
+									  	<f:facet name="header">First name</f:facet>
+									  	<h:outputText value="300 - Commercial" />
+									  </h:column>
+						
+									  <h:column>
+									  	<f:facet name="header">Last name</f:facet>
+									  	<h:outputText value="01/05/2010" />
+									  </h:column>
+									  <h:column>
+									  	<f:facet name="header" style="margin: auto;">Birth date</f:facet>
+									  	<h:outputText value="01/07/2010" />
+									  </h:column>
+					
+									  <h:column>
+									  	<f:facet name="header">Relative type</f:facet>
+									  	<h:outputText value="300 - Commercial" />
+									  </h:column>								
+
+				  					  <h:column>
+									  	<f:facet name="header">ID Card</f:facet>
+									  	<h:outputText value="300 - Commercial" />
+									  </h:column>																	  
+									</h:dataTable>
+				                </div>
+				                <div class="clearfix"></div>
+				                
+				                <div class="col-sm-12 " >
+				                	<div class ="table_footer">
+							            <div class='col-sm-5' >
+								                <button class="btn btn-default"> 
+								                	<i class="fa fa-fast-backward"></i>
+								                </button>
+								                <button class="btn btn-default"> 
+								                	<i class="fa fa-step-backward"></i>
+								                </button>
+												
+												<h:inputText styleClass="text-box-search" id="txtSearch" value="1" />
+												<button class="btn btn-default"> 
+								                	<i class="fa fa-step-forward"></i>
+								                </button>
+								                <button class="btn btn-default"> 
+								                	<i class="fa fa-fast-forward"></i>
+								                </button>
+												
+												
+								        </div>
+								        
+								        <div class='col-sm-4 float-right' >
+								                    
+								            <div class="form-group float-right" >
+								                        <label>Page 1 of 1 (2 items) </label>
+								            </div>
+								        </div> 
+								        <div class="clearfix"></div>
+								        <div class="ln_solid"></div>
+							        </div>
+						        </div>
+
+						        
+						        <div class="col-sm-12 " >
+									<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-add-relation">Add New</button>
+
+								</div>
+				            </div>
+			            
+			        </div>
+			        </div>
+			        </div>
+			    </div>
+				</div>
+                </div>
+            </div>
+            </div>
+            </div>
+
+
+            <!-- Add new modal -->
+            <div class="modal fade bs-example-modal-lg" id="modal-add-relation" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-delete">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel">Employee family relationship information: </h4>
+                        </div>
+                        <div class="modal-body form-horizontal">
+                        <form>
+                          	 <div class="col-sm-12">
+               				<div class="form-group">                         	 
+                          	 <div class="col-sm-4">
+                          	 	Relationship type:
+                          	 </div>
+               					 <div class="col-sm-8">
+					                <h:selectOneMenu  styleClass="form-control" value = "#{data}"> 
+									            <f:selectItem itemValue = "1" itemLabel = "-[Select]-" /> 
+									            <f:selectItem itemValue = "2" itemLabel = "Thien Hoang" /> 
+									            
+									</h:selectOneMenu>  
+				                </div>
+				                </div>
+                		 <div class="form-group">
+                          	 <div class="col-sm-4">
+                          	 	Gender:
+                          	 	</div>
+               					 	<div class="col-sm-8">
+					                	<h:selectOneMenu  styleClass="form-control" value = "#{data}"> 
+									            <f:selectItem itemValue = "1" itemLabel = "-[Select]-" /> 
+									            <f:selectItem itemValue = "2" itemLabel = "Male" /> 
+									            
+									</h:selectOneMenu>  
+				                      </div>      
+				            
+				                </div>
+                					 <div class="form-group">
+                          	 <div class="col-sm-4">
+                          	 	Is guarantor:
+                          	 	</div>
+               					 <div class="col-sm-8">
+										<h:selectBooleanCheckbox></h:selectBooleanCheckbox>
+				                      </div>      
+				                </div>
+
+               					 <div class="form-group">
+                          	 <div class="col-sm-4">
+                          	 	Date of birth:
+                          	 </div>
+               					 <div class="col-sm-8">
+										<h:inputText styleClass="form-control"></h:inputText>
+				                                <span class="fa fa-calendar-o form-control-feedback right" aria-hidden="true"></span>										
+				                      </div>      
+				                </div>
+
+               					 <div class="form-group">				               
+                          	 <div class="col-sm-4">
+                          	 	First name:
+                          	 	</div>
+               					 <div class="col-sm-8">
+										<h:inputText styleClass="form-control"></h:inputText>
+				                </div>
+				                </div>		
+
+               					 <div class="form-group">				                
+                          	 <div class="col-sm-4">
+                          	 	Middle name:
+                          	 </div>
+               					 <div class="col-sm-8">
+										<h:inputText styleClass="form-control"></h:inputText>
+				                </div>
+				                </div>	
+
+               					 <div class="form-group">				                
+                          	 <div class="col-sm-4">
+                          	 	Last name:
+                          	 	</div>
+               					 <div class="col-sm-8">
+										<h:inputText styleClass="form-control"></h:inputText>
+ 				                </div>
+				                </div>	
+
+               					 <div class="form-group">				                
+                          	 <div class="col-sm-4">
+                          	 	ID card:
+                          	 	</div>
+               					 <div class="col-sm-8">
+										<h:inputText styleClass="form-control"></h:inputText>
+				                      </div>      
+				                </div>					                				                				                		               			
+
+               					 <div class="form-group"> 
+                          	 <div class="col-sm-4">
+                          	 	Contract info:
+                          	 	</div>
+               					 <div class="col-sm-8">
+										<h:inputTextarea styleClass="form-control"></h:inputTextarea>
+				                      </div>      
+				                </div>
+				                
+				                </div>	
+				                </form>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-primary">Save </button>
+                           <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        </div>
+                      </div>
+                    </div>
+            </div>
+			<!--  Add new  modal -->
+
+			<!-- Edit modal -->
+            <div class="modal fade bs-example-modal-lg" id="modal-edit-relation" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-delete">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel">Employee unit information :</h4>
+                        </div>
+                        <form>
+                        <div class="modal-body">
+                          	 <div class='col-sm-12'>
+                          	 <div class="col-sm-4">
+                          	 	Relationship type:
+               					 <div class="form-group">
+               					 <div class="col-sm-8">
+					                <h:selectOneMenu styleClass="form-control" value = "#{data}"> 
+									            <f:selectItem itemValue = "1" itemLabel = "-[Select]-" /> 
+									            <f:selectItem itemValue = "2" itemLabel = "Thien Hoang" /> 
+									            
+									</h:selectOneMenu>  
+				                      </div>      
+				                </div>
+				                </div>
+				                </div>
+                          	 <div class='col-sm-12'>
+                          	 <div class="col-sm-4">
+                          	 	Gender:
+               					 <div class="form-group">
+               					 	<div class="col-sm-8">
+					                	<h:selectOneMenu styleClass="form-control" value = "#{data}"> 
+									            <f:selectItem itemValue = "1" itemLabel = "-[Select]-" /> 
+									            <f:selectItem itemValue = "2" itemLabel = "Male" /> 
+									            
+									</h:selectOneMenu>  
+				                      </div>      
+				                	</div>
+				                	</div>
+				                </div>
+				            <div class='col-sm-12'>
+                          	 <div class="col-sm-4">
+                          	 	Is guarantor:
+               					 <div class="form-group">
+               					 <div class="col-sm-8">
+										<h:selectBooleanCheckbox styleClass="form-control"></h:selectBooleanCheckbox>
+				                      </div>      
+				                </div>
+				                </div>
+				                </div>				                
+
+                          	 <div class='col-sm-12'>
+                          	 <div class="col-sm-4">
+                          	 	Date of birth:
+               					 <div class="form-group">
+               					 <div class="col-sm-8">
+										<h:inputText styleClass="form-control"></h:inputText>
+				                                <span class="fa fa-calendar-o form-control-feedback right" aria-hidden="true"></span>										
+				                      </div>      
+				                </div>
+				                </div>
+				                </div>
+				               
+                          	 <div class='col-sm-12'>
+                          	 <div class="col-sm-4">
+                          	 	First name:
+               					 <div class="form-group">
+               					 <div class="col-sm-8">
+										<h:inputText styleClass="form-control"></h:inputText>
+				                      </div>      
+				                </div>
+				                </div>
+				                </div>		
+				                
+                          	 <div class='col-sm-12'>
+                          	 <div class="col-sm-4">
+                          	 	Middle name:
+               					 <div class="form-group">
+               					 <div class="col-sm-8">
+										<h:inputText styleClass="form-control"></h:inputText>
+				                      </div>      
+				                </div>
+				                </div>
+				                </div>	
+				                
+                          	 <div class='col-sm-12'>
+                          	 <div class="col-sm-4">
+                          	 	Last name:
+               					 <div class="form-group">
+               					 <div class="col-sm-8">
+										<h:inputText styleClass="form-control"></h:inputText>
+				                      </div>      
+				                </div>
+				                </div>
+				                </div>	
+				                
+                          	 <div class='col-sm-12'>
+                          	 <div class="col-sm-4">
+                          	 	ID card:
+               					 <div class="form-group">
+               					 <div class="col-sm-8">
+										<h:inputText styleClass="form-control"></h:inputText>
+				                      </div>      
+				                </div>
+				                </div>
+				                </div>					                				                				                		               			
+ 
+                           	 <div class='col-sm-12'>
+                          	 <div class="col-sm-4">
+                          	 	Contract info:
+               					 <div class="form-group">
+               					 <div class="col-sm-8">
+										<h:inputTextarea styleClass="form-control"></h:inputTextarea>
+				                      </div>      
+				                </div>
+				                </div>
+				                </div>	
+                        </div>
+                        <div class="clearfix"></div>
+
+                        <div class="modal-footer">
+                           <button type="button" class="btn btn-primary">Save </button>
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        </div>
+                    	</form>
+                      </div>
+                    </div>
+            </div>
+			<!-- Delete modal -->
+            <div class="modal fade bs-example-modal-lg" id="modal-delete-relation" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-sm modal-delete">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel">Confirm:</h4>
+                        </div>
+                        
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                          
+                          <button type="button" class="btn btn-primary">Delete</button>
+                        </div>
+
+                      </div>
+                    </div>
+            </div>
+			<!--  Delete modal -->
+</body> 
+</html>

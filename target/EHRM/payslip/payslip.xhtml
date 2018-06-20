@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      
+      >
+    <h:body>
+    	
+    	<ui:composition template="/template/common/commonLayout.xhtml">
+    		<!-- Thay ten trang tuong ung -->
+    		<ui:define name="title">
+    			Payslip for employee
+    		</ui:define>
+    	
+    		<ui:define name="content">
+    		<!-- xoa phan phan khung duoi di, thay vao noi dung tuong ung. -->
+    		<!-- =================================================================================================-->
+    			
+    		<div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+              	<h2>Payslip for employee</h2>
+              	<hr/>
+                <div class="x_panel">
+                 
+                  <div class="x_content">
+                  	<!-- search-->
+			        <div class="container">
+			            <h:form>
+			            	<div class="row">
+
+				                <div class='col-sm-3'>
+				                    Fiscal Year :
+				                    <div class="form-group">
+				                        <div class="form-group" >
+											<h:selectOneMenu id="xxx" styleClass="form-control" value = "#{projects_bean.status}"> 
+									            <f:selectItem itemValue = "0" itemLabel = "2018" /> 
+									            <f:selectItem itemValue = "744" itemLabel = "2017" /> 
+									            <f:selectItem itemValue = "745" itemLabel = "2016" /> 
+									            <f:selectItem itemValue = "746" itemLabel = "2015" /> 
+									          </h:selectOneMenu>  
+				                        </div>
+				                    </div>
+				                </div>
+
+				                <div class='col-sm-3'>
+				                    Period:
+				                    <div class="form-group">
+				                        <div class="form-group" >
+											<h:selectOneMenu id="yyy" styleClass="form-control" value = "#{projects_bean.status}"> 
+									            <f:selectItem itemValue = "0" itemLabel = "November" /> 
+									            <f:selectItem itemValue = "744" itemLabel = "December" /> 
+									            <f:selectItem itemValue = "745" itemLabel = "October" /> 
+									            <f:selectItem itemValue = "746" itemLabel = "September" /> 
+									          </h:selectOneMenu>  
+				                        </div>
+				                    </div>
+				                </div>
+				                
+				                 
+				               <div class='col-sm-2'>
+				                    <h:commandButton styleClass="btn btn-primary gen-btn" action="#{projects_bean.search()}" value="Generate" />
+				                </div>
+				                
+				                 
+				            </div>
+			            </h:form>
+			        </div>
+			        
+			        
+			    </div>
+                </div>
+                <!-- show table-->
+                <div class="x_panel">
+                  <div class="footer">
+                    <h2 ><p>Pay Slip               Phiếu chi lương</p></h2>
+                    <br/>
+                    <br/>
+                    
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                  	<!-- search-->
+			        <div class="container">
+			            
+			            	<div class="row">
+				                <div class="col-sm-12">
+				                	<div class="col-sm-4">
+				                		<div class="col-sm-6 cfg-label">
+				                			<label>Tên/Name:</label>
+				                		</div>
+				                		<div class="col-sm-6 align-center">
+				                			Trần văn Huy
+				                		</div>
+				                	</div>
+				                	<div class="col-sm-4">
+				                		<div class="col-sm-6 cfg-label">
+				                			<label>ID:</label>
+				                		</div>
+				                		<div class="col-sm-6 align-center">
+				                			12345678
+				                		</div>
+				                	</div>
+				                	<div class="col-sm-4">
+				                		<div class="col-sm-6 cfg-label">
+				                			<label>Vị trí/Position:</label>
+				                		</div>
+				                		<div class="col-sm-6 align-center">
+				                			102 Kỹ thuật viên
+				                		</div>
+				                	</div>
+				                </div>
+
+				                <div class="col-sm-12">
+				                	<div class="col-md-12">
+				                		<div class="col-sm-5 cfg-label">
+					                		<label>Lương cơ bản / Basic salary</label>
+					                	</div>
+					                	<div class="col-sm-7">
+					                		0000000000
+					                	</div>
+				                	</div>
+				                </div>
+
+				                <div class="col-sm-12 ">
+				                	<div class="col-sm-12">
+				                		<div class="col-md-12 cfg-label">
+				                			<label>Lương theo ngày / Salary by working time</label>
+						                </div>
+						            </div>
+				                </div>
+
+				                 <div class="col-sm-12">
+				                	<div class="col-sm-5">
+				                		<div class="col-sm-5 cfg-label ">
+				                			<p class="float-right">Ngày công :</p>	
+				                		</div>
+				                		<div class="col-sm-7">
+				                			43	
+				                		</div>
+				                		<div class="clearfix"></div>
+				                		<div class="col-sm-5 cfg-label ">
+				                			<i class="float-right">Working days</i>	
+				                		</div>
+				                	</div>
+				                	<div class="col-sm-7">
+				                		<div class="col-sm-8 cfg-label ">
+				                			<p class="float-right"> Lương theo ngày công </p>
+				                		</div>
+				                		<div class="col-sm-4">
+				                			43443 VNĐ
+				                		</div>
+				                		<div class="col-sm-8 cfg-label ">
+				                			<i class="float-right">Salary by working days</i>
+				                		</div>
+
+				                		<div class="col-sm-8 cfg-label ">
+				                			<p class="float-right">Tiền được truy lĩnh/ bị truy thu trước thuế</p>
+				                		</div>
+				                		<div class="col-sm-4">
+				                			43443 VNĐ
+				                		</div>
+				                		<div class="col-sm-8 cfg-label ">
+				                			<i class="float-right">Compensation or Deduction before tax</i>
+				                		</div>
+				                		
+				                	</div>
+				                </div>
+
+				                <div class="col-sm-12 ">
+				                	<div class="col-sm-12">
+				                		<div class="col-md-12 cfg-label">
+				                			<label>Công tác phí /Travelling expense</label>
+				                		</div>
+				                	</div>
+				                </div>
+
+				                <div class="col-sm-12">
+				                	<div class="col-sm-5">
+				                		
+				                	</div>
+				                	<div class="col-sm-7">
+				                		<div class="col-sm-8 cfg-label">
+				                			<p class="float-right">Tiền ăn/ Food allowance</p>
+				                		</div>
+				                		<div class="col-sm-4">
+				                			43443 VNĐ
+				                		</div>
+				                		<div class="col-sm-8 cfg-label">
+				                			<p class="float-right">Tiền khách sạn/ Hotel allowance</p>
+				                		</div>
+				                		<div class="col-sm-4">
+				                			43443 VNĐ
+				                		</div>
+
+				                		<div class="col-sm-8 cfg-label">
+				                			<p class="float-right">Tiền đi lại/ Transportation allowance</p>
+				                		</div>
+				                		<div class="col-sm-4">
+				                			43443 VNĐ
+				                		</div>
+				                		<div class="col-sm-8 cfg-label">
+				                			<p class="float-right">Tiền giặt là/ Laundry allowance</p>
+				                		</div>
+				                		<div class="col-sm-4">
+				                			43443 VNĐ
+				                		</div>
+				                		<div class="col-sm-8 cfg-label">
+				                			<p class="float-right">Tổng công tác phí / Travelling expense total</p>
+				                		</div>
+				                		<div class="col-sm-4">
+				                			43443 VNĐ
+				                		</div>
+				                		
+				                	</div>
+				                </div>
+
+				                <div class="col-sm-12 ">
+				                	<div class="col-sm-12">
+				                		<div class="col-md-12 cfg-label">
+				                			<label>Ngoài giờ / Overtime</label>
+				                		</div>
+				                	</div>
+				                </div>
+
+				                <div class="col-sm-12">
+				                	<div class="col-sm-5">
+				                		<div class="col-sm-5 cfg-label">
+				                			<p class="float-right"><i>Travel</i></p>
+				                		</div>
+				                		<div class="col-sm-7">
+				                			434 H
+				                		</div>
+				                		<div class="clearfix"></div>
+				                		<div class="col-sm-5 cfg-label">
+				                			<p class="float-right"><i>Normal	</i></p>
+				                		</div>
+				                		<div class="col-sm-7">
+				                			434 H
+				                		</div>
+				                		<div class="clearfix"></div>
+				                		<div class="col-sm-5 cfg-label">
+				                			<p class="float-right"><i>Normal N	</i></p>
+				                		</div>
+				                		<div class="col-sm-7">
+				                			434 H
+				                		</div>
+				                		<div class="clearfix"></div>
+				                		<div class="col-sm-5 cfg-label">
+				                			<p class="float-right"><i>Weekend</i></p>
+				                		</div>
+				                		<div class="col-sm-7">
+				                			434 H
+				                		</div>
+				                		<div class="clearfix"></div>
+				                		<div class="col-sm-5 cfg-label">
+				                			<p class="float-right"><i>Weekend N</i></p>
+				                		</div>
+				                		<div class="col-sm-7">
+				                			434 H
+				                		</div>
+				                		<div class="clearfix"></div>
+				                		<div class="col-sm-5 cfg-label">
+				                			<p class="float-right"><i>Holiday</i></p>
+				                		</div>
+				                		<div class="col-sm-7">
+				                			434 H
+				                		</div>
+				                		<div class="clearfix"></div>
+				                		<div class="col-sm-5 cfg-label">
+				                			<p class="float-right"><i>Holiday N</i></p>
+				                		</div>
+				                		<div class="col-sm-7">
+				                			434 H
+				                		</div>
+				                	</div>
+				                	
+				                	<div class="col-sm-7">
+				                		<div class="col-sm-8">
+				                			Thành tiền/ Overtime amount
+					                	</div>
+					                	<div class="col-sm-4">
+					                			3333333 VNĐ
+					                	</div>
+				                	</div>
+				                </div>
+
+				                <div class="col-sm-12 " >
+				                	<div class="col-sm-12">
+					                	<div class="col-sm-5 cfg-label">
+					                		<label>Thưởng / Bonus</label>
+					                	</div>
+					                	<div class="col-sm-7">
+					                		0000000VNĐ
+					                	</div>
+				                	</div>
+				                	
+				                </div>
+
+				                 <div class="col-sm-12 ">
+				                	<div class="col-sm-12">
+				                		<div class="col-md-12 cfg-label">
+				                			<label>Khấu trừ / Deduction</label>
+				                		</div>
+				                	</div>
+				                </div>
+				                <div class="col-xs-12">
+				                	<div class="col-sm-5"></div>
+				                	<div class="col-sm-7">
+				                		<div class="col-sm-8 cfg-label">
+				                			<p class="float-right">BHXH, BHYT, thất nghiệp</p>
+				                		</div>
+				                		<div class="col-sm-4">
+				                			434 VNĐ
+				                		</div>
+				                		<div class="col-sm-8 cfg-label">
+				                			<p class="float-right"><i>Insurance	</i></p>
+				                		</div>
+				                		
+
+				                		<div class="col-sm-8 cfg-label">
+				                			<p class="float-right">Công đoàn</p>
+				                		</div>
+				                		<div class="col-sm-4">
+				                			434 VNĐ
+				                		</div>
+				                		<div class="col-sm-8 cfg-label">
+				                			<p class="float-right"><i>Union fee</i></p>
+				                		</div>
+				                		
+				                		<div class="col-sm-8 cfg-label">
+				                			<p class="float-right">Thuế TNCN</p>
+				                		</div>
+				                		<div class="col-sm-4">
+				                			434 VNĐ
+				                		</div>
+				                		<div class="col-sm-8 cfg-label">
+				                			<p class="float-right"><i>PIT</i></p>
+				                		</div>
+				                		
+				                		<div class="col-sm-8 cfg-label">
+				                			<p class="float-right">Tiền được truy lĩnh/ bị truy thu sau thuế</p>
+				                		</div>
+				                		<div class="col-sm-4">
+				                			434 VNĐ
+				                		</div>
+				                		<div class="col-sm-8 cfg-label">
+				                			<p class="float-right"><i>Compensation or deduction after TAX</i></p>
+				                		</div>
+				                	</div>
+				                </div>
+
+				                <div class="col-sm-12 " >
+				                	<div class="col-sm-12" style="padding-right: 42px;">
+					                	<div class="col-sm-10 cfg-label" >
+					                		<div >
+					                			<label>Thực lĩnh / Net paid</label>
+					                		</div>
+					                	</div>
+					                	<div class="col-sm-2">
+					                		454554 VNĐ
+					                	</div>
+					                </div>
+				                	
+				                </div>
+
+				                <div class="clearfix"></div>
+				                
+
+						        
+						        <div class="col-sm-12 " >
+									<div class="footer">
+										<small>
+										<p>Xin vui lòng giữ bí mật các thông tin về lương của bạn<br/><i>Keep your salary information secret please</i></p> </small>
+
+									</div>
+									<div class="footer">
+										
+									</div>
+								</div>
+				            </div>
+			            
+			        </div>
+			        
+			        
+			    </div>
+                </div>
+                <div class="x_panel">
+                	
+                	
+                </div>
+              </div>
+            </div>
+           
+
+        	<script type="text/javascript">
+			    
+			    
+			</script>
+            <!-- =================================================================================================-->	
+    		</ui:define>
+		</ui:composition>
+	
+    </h:body>
+
+</html>

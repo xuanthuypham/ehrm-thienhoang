@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      
+      >
+    <h:body>
+    	
+    	<ui:composition template="/template/common/commonLayout.xhtml">
+    		<!-- Thay ten trang tuong ung -->
+    		<ui:define name="title">
+    			Approve timesheet
+    		</ui:define>
+    	
+    		<ui:define name="content">
+    		<!-- xoa phan phan khung duoi di, thay vao noi dung tuong ung. -->
+    		<!-- =================================================================================================-->
+    			
+    		<div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+              	<h2>Pending timesheet</h2>
+              	<hr/>
+                <div >
+                 
+                  <div class="x_content">
+                  	<!-- search-->
+			        <div class="container">
+			            <form>
+			            	<div class="x_panel">
+			            		<div class="row col-sm-12" style="margin-top: 10px;">
+
+				            		<div class='col-sm-6'>
+					                    <div class=" col-sm-4 cfg-label">
+					                    	<label class="float-right">Fiscal year:</label>
+					                    </div>
+					                    <div class="col-sm-8 form-group float-right">
+					                        <div class="col-sm-6 float-left">
+					                        	<h:selectOneMenu styleClass="form-control" value = "#{data}"> 
+											        <f:selectItem itemValue = "1" itemLabel = "-[Select]-" /> 
+											        <f:selectItem itemValue = "2" itemLabel = "2016" /> 
+											        <f:selectItem itemValue = "3" itemLabel = "2017" /> 
+											        <f:selectItem itemValue = "4" itemLabel = "2018" /> 
+											    </h:selectOneMenu> 
+					                        </div>
+					                    </div>
+					                </div>
+
+					                 <div class='col-sm-6'>
+					                    <div class="col-sm-4 cfg-label">
+					                    	<label class="float-right ">Period:</label>
+					                    </div>
+					                    <div class="col-sm-8 form-group float-right">
+					                        <div class="form-group" >
+					                        	<div class="col-sm-6 float-left">
+					                        		<h:selectOneMenu styleClass="form-control col-sm-6 float-left" value = "#{data}"> 
+											            <f:selectItem itemValue = "1" itemLabel = "-[Select]-" /> 
+											            <f:selectItem itemValue = "2" itemLabel = "Tháng 1" /> 
+											            <f:selectItem itemValue = "3" itemLabel = "Tháng 2" /> 
+											            <f:selectItem itemValue = "4" itemLabel = "Tháng 3" /> 
+											         </h:selectOneMenu> 
+					                        	</div>    
+					                        </div>
+					                    </div>
+					                </div>
+								</div>
+			            	</div>
+			            	<div class="clearfix"></div>
+				            <div class="row">
+				            	<div class="col-sm-6">
+				            		<div class='col-sm-4'>
+						            	<h2>Applied list</h2>
+						            </div>
+						            <div class="clearfix"></div>
+						            <div class="x_panel col-sm-12">
+						            	<div class="x_content">
+						                  	<div class="container">
+						                  		<div class="row col-sm-12 " style="margin-top: 3px;">
+						                  			<div class="col-sm-5 " style="background-color: #9adbf1;margin-top: 3px;">
+						                  				
+		                        						<ul class="to_do">
+		                        							<li>
+		                        								<input type="radio"  name="gender" id="genderM" value="M" checked="" /> All employes
+		                        							</li>
+		                        							<li>
+		                        								<input type="radio"  name="gender" id="genderF" value="F" /> Division
+		                        							</li>
+		                        							<li>
+		                        								<input type="radio"  name="gender" id="genderM" value="M" /> Individual
+		                        							</li>
+		                        						</ul>
+		                        						<label>Total hour:</label>
+						                  			</div>
+						                  			<div class="col-sm-7" style="margin-top: 3px;">
+						                  				<ul class="to_do">
+		                        							<li>
+		                        								<br/>
+		                        							</li>
+		                        							<li>
+		                        								<div class="form-group" id='myDatepicker3'>
+																	<h:selectOneMenu styleClass="form-control" value = "#{data}"> 
+															            <f:selectItem itemValue = "1" itemLabel = "-[Select]-" /> 
+															            <f:selectItem itemValue = "2" itemLabel = "Active" /> 
+															            <f:selectItem itemValue = "3" itemLabel = "Inactive" /> 
+															            <f:selectItem itemValue = "4" itemLabel = "Close" /> 
+															         </h:selectOneMenu>  
+										                        </div>
+		                        							</li>
+		                        							<li>
+		                        								<div class="form-group" id='myDatepicker3'>
+																	<h:selectOneMenu styleClass="form-control" value = "#{data}"> 
+															            <f:selectItem itemValue = "1" itemLabel = "-[Select]-" /> 
+															            <f:selectItem itemValue = "2" itemLabel = "Active" /> 
+															            <f:selectItem itemValue = "3" itemLabel = "Inactive" /> 
+															            <f:selectItem itemValue = "4" itemLabel = "Close" /> 
+															         </h:selectOneMenu>  
+										                        </div>
+		                        							</li>
+		                        						</ul>
+						                  				
+						                  			</div>
+						                  		</div>
+						                  	</div>
+						                 </div>
+						            </div>
+				            	</div>
+				            	<div class="col-sm-6">
+				            		<div class='col-sm-4'>
+						            	<h2>Option</h2>
+						            </div>
+						            <div class="clearfix"></div>
+						            <div class="x_panel col-sm-12">
+						            	<div class="x_content">
+						                  	<div class="container">
+						                  		<div class="row col-sm-12 " style="margin-top: 3px;">
+						                  			
+						                  			<ul class="to_do">
+		                        							<li>
+		                        								<br/>
+		                        							</li>
+		                        							<li>
+		                        								<input type="checkbox" name="hobbies[]" id="hobby3" value="eat"  /> Nomal
+									                  			<input type="checkbox" name="hobbies[]" id="hobby3" value="eat"  /> Working on holidy
+									                  		</li>
+		                        							<li>
+		                        								<input type="checkbox" name="hobbies[]" id="hobby3" value="eat"  /> No time in, has time out
+									                  			<input type="checkbox" name="hobbies[]" id="hobby3" value="eat"  /> No time out, has time in
+									                  			<input type="checkbox" name="hobbies[]" id="hobby3" value="eat" /> No time in, no time out
+		                        							</li>
+		                        							<li >
+		                        								<div class="tile_info">
+		                        									<i class="fa fa-square red"></i>Employee edit
+			                        								<i class="fa fa-square yellowgreen"></i>HOD's assistant
+			                        								<i class="fa fa-square blue"></i>HOD's approval 
+			                        								<i class="fa fa-square green"></i>HR approval 
+		                        								</div>
+		                        								
+		                        							</li>
+		                        					</ul>
+						                  		</div>
+						                  	</div>
+						                 </div>
+						            </div>
+				            	</div>
+				            </div>
+				            <div class="clearfix"></div>
+				            <div >
+				                <div class="container">
+				                  	<div class="row col-sm-8">
+				                  		<button type="submit" class="btn btn-primary">Load</button>
+						                
+				                  	</div>
+				                </div>
+				            </div>
+			            </form>
+			        </div>
+			        
+			        
+			    </div>
+                </div>
+                <!-- show table-->
+                <div class="x_panel">
+                  
+                  <div class="x_content">
+                  	<!-- search-->
+			        <div class="container">
+			            
+			            	<div class="row">
+				                
+				                <div class="clearfix"></div>
+				                <div class="pane--table2">
+  									<div class="pane-hScroll">
+  										<div class="col-sm-12">
+						                	<table id= "datatable" class="table table-striped table-bordered dataTable no-footer" >
+											  <thead >
+												  	<tr>
+													    <!-- class="table-th-width-100/140/170/200" -->
+													    <th >8-ID</th>
+													    <th class="table-th-width-170">Employee name</th>
+													    <th >Working date</th>
+													    <th >Time in</th>
+													    <th >Time out</th>
+													    <th >Lunch hour</th>
+													    <th >OT hour</th>
+													    <th >OT travel</th>
+													    <th >Total time</th>
+													    <th >Total hour project</th>
+													    <th >Desription</th>
+													    
+													 </tr>
+											  </thead>
+											  <tbody>
+												  	<tr>
+													    
+													    <td>12345678</td>
+													    <td>Nguyễn thị phương khánh</td>
+													    <td>22/4/2018</td>
+													    <td>08:00:00</td>
+													    <td>18:00:00</td>
+													    <td>2</td>
+													    <td>50.00</td>
+													    <td>50.00</td>
+													    <td>50.00</td>
+													    <td>50.00</td>
+													    <td>xyz</td>
+													    
+													 </tr>
+													  
+													 <tr>
+													    <td>87654321</td>
+													    <td>Nguyễn thị Dung</td>
+													    <td>22/4/2018</td>
+													    <td>08:00:00</td>
+													    <td>18:00:00</td>
+													    <td>2</td>
+													    <td>50.00</td>
+													    <td>50.00</td>
+													    <td>50.00</td>
+													    <td>50.00</td>
+													    <td>xyz</td>
+													 </tr>
+
+											  </tbody>
+											  <tr>
+											  			<th></th>
+													    <th></th>
+													    <th></th>
+													    <th></th>
+													    <th></th>
+													    <th></th>
+													    <th>Total: <br/> <b class="red">100.00</b></th>
+													    <th>Total: <br/> <b class="red">100.00</b></th>
+													    <th>Total: <br/> <b class="red">100.00</b></th>
+													    <th>Total: <br/> <b class="red">100.00</b></th>
+													    <th></th>
+											  </tr>
+											  
+											</table>
+						                </div>
+		  							</div>
+  								</div>		
+				                
+				                <div class="clearfix"></div>
+				                
+				            </div>
+			            
+			        </div>
+			        
+			        
+			    </div>
+                </div>
+                <div class="col-sm-12 " >
+									<button class="btn btn-primary" > Select All </button>
+                					<button class="btn btn-primary" > Submit </button>
+									<button class="btn btn-primary" > Export </button>
+								</div>
+                
+              </div>
+            </div>
+        	
+            <!-- =================================================================================================-->	
+    		</ui:define>
+		</ui:composition>
+    </h:body>
+
+</html>

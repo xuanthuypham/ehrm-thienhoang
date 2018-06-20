@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+      
+<body> 
+    		<!-- xoa phan phan khung duoi di, thay vao noi dung tuong ung. -->
+    		<!-- =================================================================================================-->
+    			
+    		<div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_content">
+                  	<!-- search-->
+			        <div class="container">
+			            	<div class="row">
+
+                <!-- show table-->
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>List Employees dependant</h2>
+                    
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                  	<!-- search-->
+			        <div class="container">
+			            
+			            	<div class="row">
+				                
+				                <div class="clearfix"></div>
+				                <div class="col-sm-12">
+				                
+				                	<h:dataTable id= "datatable6" styleClass="table table-striped table-bordered dataTable no-footer" var="ed" value="#{dependantBean.list}">
+									  <h:column>
+									  	<f:facet name="header" style="width: 64px;"><span style="padding-left: 10px;" class="glyphicon glyphicon-file" aria-hidden="true"></span></f:facet>
+									  	<button class="btn btn-link btn_icon" onclick="dependant_update('#{ed.employeeDependantId}','#{ed.employeeRelatives.employeeRelativeId}','#{ed.startDate}','#{ed.endDate}')" data-toggle="modal" data-target="#modal-edit-dependant">
+											    		<i class="fa fa-edit"></i>
+											    	</button>
+											    	<button onclick="dependant_pass_del(#{ed.employeeDependantId})" class="btn btn-link btn_icon" data-toggle="modal" data-target="#modal-delete-dependant">
+											    		<i class="fa fa-trash"></i>
+											    	</button>
+									  </h:column>
+									  <h:column>
+									  	<f:facet name="header">Title: </f:facet>
+									  	<h:outputText value="#{ed.employeeRelatives.lastName} #{ed.employeeRelatives.middleName} #{ed.employeeRelatives.firstName}"/>
+									  </h:column>
+						
+									  <h:column>
+									  	<f:facet name="header">Start date</f:facet>
+									  	<h:outputText value="#{ed.startDate}" />
+									  </h:column>
+									  <h:column>
+									  	<f:facet name="header" style="margin: auto;" >End date</f:facet>
+									  	<h:outputText value="#{ed.endDate}" />
+									  </h:column>
+																	  
+									</h:dataTable>
+				                </div>
+				                <div class="clearfix"></div>
+				                
+				                <div class="col-sm-12 " >
+				                	<div class ="table_footer">
+							            <div class='col-sm-5' >
+								                <button class="btn btn-default"> 
+								                	<i class="fa fa-fast-backward"></i>
+								                </button>
+								                <button class="btn btn-default"> 
+								                	<i class="fa fa-step-backward"></i>
+								                </button>
+												
+												<h:inputText styleClass="text-box-search" id="txtSearch9" value="1" />
+												<button class="btn btn-default"> 
+								                	<i class="fa fa-step-forward"></i>
+								                </button>
+								                <button class="btn btn-default"> 
+								                	<i class="fa fa-fast-forward"></i>
+								                </button>
+												
+												
+								        </div>
+								        
+								        <div class='col-sm-4 float-right' >
+								                    
+								            <div class="form-group float-right" >
+								                        <label>Page 1 of 1 (2 items) </label>
+								            </div>
+								        </div> 
+								        <div class="clearfix"></div>
+								        <div class="ln_solid"></div>
+							        </div>
+						        </div>
+
+						        
+						        <div class="col-sm-12 " >
+									<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-add-dependant">Add New</button>
+
+								</div>
+				            </div>
+			            
+			        </div>
+			        </div>
+			        </div>
+			    </div>
+				</div>
+                </div>
+            </div>
+            </div>
+            </div>
+
+
+            <!-- Add new modal -->
+            <div class="modal fade bs-example-modal-lg" id="modal-add-dependant" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-delete">
+                      <div class="modal-content">
+						<h:form>
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel">Employee dependant information: </h4>
+                        </div>
+                        <div class="modal-body">
+                          	 <div class='col-sm-12'>
+                          	 <div class="col-sm-4">
+                          	 	Dependant:
+                     		</div>
+               					 <div class="form-group">
+               					 <div class="col-sm-8">
+					                <h:selectOneMenu styleClass="form-control" value = "#{dependantBean.employeeRelative}"> 
+									            <f:selectItems value="#{employeeRelativeBean.list}" var="rel" itemValue="#{rel.employeeRelativeId}" itemLabel="#{rel.lastName} #{rel.middleName} #{rel.firstName}"/>           
+									</h:selectOneMenu>  
+				                       </div>     
+				                </div>
+				                </div>
+				                <div class="clearfix"></div>
+			                 <div class='col-sm-12  calendar-exibit' style="margin-top: 10px;">
+				                    <div class="col-sm-4">
+				                    Start date :
+				                    </div>
+				                    <div class="form-group">
+				                        <div class="col-sm-8 xdisplay_inputx form-group has-feedback" >
+				                            <h:inputText styleClass="form-control" aria-describedby="inputSuccess2Status" value="#{dependantBean.startDate}" id="txtstartdate" required="true" requiredMessage="Start date is not empty!!!">
+				                            	<f:convertDateTime pattern="dd-mm-yyyy"/>
+				                            	<f:ajax event="blur" render="txtstartdatemes"></f:ajax>
+				                            </h:inputText>
+				         					 <span class="fa fa-calendar-o form-control-feedback right" aria-hidden="true"></span>       
+				                        </div>
+				                    </div>
+				                    <h:message for="txtstartdate" id="txtstartdatemes" style="color:red;"/>
+				                </div>
+				            	<div class='col-sm-12'>
+				            	<div class="col-sm-4">
+				                    End date :
+				                </div>
+				                    <div class="form-group">
+				                    <div class="col-sm-2">
+				                    	<h:selectBooleanCheckbox />
+				                    </div>
+				                        <div class="col-sm-6 xdisplay_inputx form-group has-feedback"  >
+				                            <h:inputText styleClass="form-control" value="#{dependantBean.endDate}" >
+				                            	<f:convertDateTime pattern="dd-mm-yyyy"/>
+				                            </h:inputText>
+				                             <span class="fa fa-calendar-o form-control-feedback right" aria-hidden="true"></span>				                            
+				                        </div>
+				                    </div>
+				                </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="modal-footer">
+                          <h:commandButton action="#{dependantBean.addDependant()}" value="Save" styleClass="btn btn-primary"/>
+                           <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        </div>
+                    	</h:form>
+                      </div>
+                    </div>
+            </div>
+			<!--  Add new  modal -->
+
+			<!-- Edit modal -->
+            <div class="modal fade bs-example-modal-lg" id="modal-edit-dependant" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-delete">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel">Employee unit information :</h4>
+                        </div>
+                        <h:form>
+                        <div class="modal-body">
+                        	<div class="col-sm-12">
+                        		<div class="form-group dependantid">
+                        			<h:inputHidden value="#{dependantBean.editDependantId}"></h:inputHidden>
+                        		</div>
+                        	</div>
+                          	 <div class='col-sm-12'>
+                          	 <div class="col-sm-4">
+                          	 	Dependant:
+                     		</div>
+               					 <div class="form-group">
+               					 <div class="col-sm-8 dependant">
+					                <h:selectOneMenu styleClass="form-control" value = "#{dependantBean.employeeRelative}"> 
+									            <f:selectItems value="#{employeeRelativeBean.list}" var="rel" itemValue="#{rel.employeeRelativeId}" itemLabel="#{rel.lastName} #{rel.middleName} #{rel.firstName}"/>           
+									</h:selectOneMenu>  
+				                       </div>     
+				                </div>
+				                </div>
+				                <div class="clearfix"></div>
+			                 <div class='col-sm-12  calendar-exibit' style="margin-top: 10px;">
+				                    <div class="col-sm-4">
+				                    Start date :
+				                    </div>
+				                    <div class="form-group">
+				                        <div class="col-sm-8 xdisplay_inputx form-group has-feedback depstartdate" >
+				                            <h:inputText styleClass="form-control" value="#{dependantBean.startDate}" aria-describedby="inputSuccess2Status" id="depeditstartdate" required="true" requiredMessage="Start date is not empty!!!">
+				                          		<f:convertDateTime pattern="yyyy-mm-dd"/>
+		                						<f:ajax event="blur" render="depeditstartdatemes"></f:ajax>
+				                            </h:inputText>
+				         					 <span class="fa fa-calendar-o form-control-feedback right" aria-hidden="true"></span>
+				                      
+				                        </div>
+				                    </div>
+				                    <h:message for="depeditstartdate" id="depeditstartdatemes" style="color:red;"/>
+				                </div>
+				            	<div class='col-sm-12'>
+				            	<div class="col-sm-4">
+				                    End date :
+				                </div>
+				                    <div class="form-group">
+				                    <div class="col-sm-2">
+				                    	<h:selectBooleanCheckbox />
+				                    </div>
+				                        <div class="col-sm-6 xdisplay_inputx form-group has-feedback dependdate"  >
+				                            <h:inputText styleClass="form-control" value="#{dependantBean.endDate}" >
+				                    			<f:convertDateTime pattern="yyyy-mm-dd"/>      	
+				                            </h:inputText>
+				                             <span class="fa fa-calendar-o form-control-feedback right" aria-hidden="true"></span>				                            
+				                        </div>
+				                    </div>
+				                </div>
+                        </div>
+                        <div class="clearfix"></div>
+
+                        <div class="modal-footer">
+                           <h:commandButton action="#{dependantBean.updateDependant()}" value="Save" styleClass="btn btn-primary"/>
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        </div>
+                    	</h:form>
+                      </div>
+                    </div>
+            </div>
+			<!-- Delete modal -->
+            <div class="modal fade bs-example-modal-lg" id="modal-delete-dependant" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-sm modal-delete">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel">Confirm:</h4>
+                        </div>
+                        
+                        <div class="modal-footer">
+                       		<h:form>
+                       		<div class="delete-dependant">
+                       		<h:inputHidden id="txtdeldependant" value="#{txtdeldependant}" />
+                       		</div>                          
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                          <h:commandButton action="#{dependantBean.deleteDependant(txtdeldependant)}" value="Delete" styleClass="btn btn-primary"/>
+                          </h:form>
+                          
+                        </div>
+
+                      </div>
+                    </div>
+            </div>
+			<!--  Delete modal -->
+
+ 		     <script type="text/javascript">
+			    function dependant_pass_del(del) {
+			    	document.querySelector(".delete-dependant input").value = del; 
+			    };
+	  		    function dependant_update(id,dependant,start,end) {
+ 			    	document.querySelector(".dependantid input").value = id; 
+ 			    	document.querySelector(".dependant select").value = dependant; 
+			    	document.querySelector(".depstartdate input").value = start; 
+			    	document.querySelector(".dependdate input").value = end;  			    	
+			    };   
+			</script>        	
+            <!-- =================================================================================================-->	
+</body>       
+</html>

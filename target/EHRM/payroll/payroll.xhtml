@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+   <h:body>
+    	<ui:composition template="/template/common/commonLayout.xhtml">
+    		<!-- Thay ten trang tuong ung -->
+    		<ui:define name="title">
+    			Payroll
+    		</ui:define>
+    	
+    		<ui:define name="content">
+    		<!-- xoa phan phan khung duoi di, thay vao noi dung tuong ung. -->
+    		<!-- =================================================================================================-->
+    		<div class="">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+						       
+            						<div class="row" style="margin-top: 10px;">
+            							<div class="col-sm-1 ">
+            								 <label>8-ID: </label>
+            							</div>
+            							<div class="col-sm-2">
+                             <label>
+            								      <h:outputText value="#{payroll_bean.emp.identifyCompany}" />
+                             </label>
+            							</div>
+            							<div class="col-sm-1">
+            								 <label>Full name: </label>
+            							</div>
+            							<div class="col-sm-4">
+                             <label>
+                								<h:outputText value="#{payroll_bean.emp.lastName}" />
+                								<h:outputText value=" " />
+                								<h:outputText value="#{payroll_bean.emp.middleName}" />
+                								<h:outputText value=" " />
+                								<h:outputText value="#{payroll_bean.emp.firstName}" />
+                             </label>
+            							</div>
+            						</div>
+
+        						<br/>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+
+                     <div class="boot-tab-slider">
+                       
+                      	<a href="#" class="boot-tab-slider__scroll-left"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span></a> 
+                        <a href="#" class="boot-tab-slider__scroll-right"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></a>
+                        <div class="boot-tab-slider__wrapper">
+                         
+                          <ul class="nav nav-tabs" role="tablist" id="exampleNav">
+                            <li role="presentation" class="active"><a href="#general" aria-controls="general" role="tab" data-toggle="tab">General</a></li>
+                            <li role="presentation"><a href="#income_app" aria-controls="income_app" role="tab" data-toggle="tab">Income application</a></li>
+                            <li role="presentation"><a href="#monthly_income" aria-controls="monthly_income" role="tab" data-toggle="tab">Monthly income</a></li>
+                            
+                          </ul>
+                        </div>
+                       
+                        <div class="tab-content">
+                          
+                          <div role="tabpanel" class="tab-pane active" id="general">
+							   	             <ui:include src="/payroll/general.xhtml" />
+                          </div>
+                          <div role="tabpanel" class="tab-pane fade" id="income_app"> <!-- thay id và aria-controls cùng 1 tên -->
+                          		<ui:include src="/payroll/IncomeApplication.xhtml" />
+                         </div>
+                          <div role="tabpanel" class="tab-pane fade" id="monthly_income">
+                          		<ui:include src="/payroll/monthly-income.xhtml" />
+                          </div>                                                                          
+                        </div>
+                      </div>
+
+
+                  </div>
+                </div>
+              </div>
+          </div>
+            <!-- =================================================================================================-->	
+    		</ui:define>
+		</ui:composition>
+    </h:body>
+</html>
